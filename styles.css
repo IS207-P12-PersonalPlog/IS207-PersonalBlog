@@ -1,32 +1,91 @@
-h1{
-    color: red;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Optional custom styles */
-.filters-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
+header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
 
-  .filter-item {
-    padding: 8px 16px;
-    cursor: pointer;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.logo img {
+  width: 150px;
+}
 
-  .filter-item.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-  }
+nav ul {
+  list-style: none;
+  display: flex;
+}
 
-#scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
+nav li {
+  margin-right: 20px;
+}
+
+.search input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.search button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slide {
+  height: 351px;
+  overflow: hidden
+}
+
+.img_slide {
+  padding: 0px;
+  margin: 0px;
+}
+
+.filterable_card {
+  display: flex;
+  margin-top: 25px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex-basis: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  width: 380px;
+  margin: 10px;
+  height: 510px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.card_body {
+  padding: 15px 20px 20px;
+}
+
+.card_title {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  height: 50px;
+}
+
+.card_value {
+  font-size: 25px;
+  font-weight: 700;
+  color: red;
 }
