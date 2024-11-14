@@ -24,6 +24,10 @@ body {
   z-index: 100;
 } */
 
+a{
+  text-decoration: none;
+}
+
 .top-nav {
   border-bottom-color: rgb(236, 232, 227);
   height: 100px;
