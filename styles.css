@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+li {
+  text-align: center;
+}
+
 body {
   /* Can su dung font chu khac dep hon, e.g: "Montserrat", sans-serif */
   font-family: Arial, sans-serif;
