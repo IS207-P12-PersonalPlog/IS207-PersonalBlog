@@ -1,11 +1,13 @@
 <?php
-$con = mysqli_connect('localhost','root', '', 'mystore');
-if($con)
-{
-    echo "Success";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mystore";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-else{
-    echo "Not";
-    die();
-}
+
 ?>

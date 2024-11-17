@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2024 lúc 03:57 AM
+-- Thời gian đã tạo: Th10 17, 2024 lúc 04:29 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -107,9 +107,9 @@ CREATE TABLE `sp` (
   `category_id` varchar(100) NOT NULL,
   `brand_id` varchar(100) NOT NULL,
   `TENSP` varchar(100) NOT NULL,
-  `GIA` varchar(50) NOT NULL,
+  `GIA` int(11) DEFAULT NULL,
   `DUNGLUONG` enum('128GB','32GB','64GB','256GB','None') NOT NULL,
-  `DVT` enum('Cai') NOT NULL,
+  `DVT` enum('Cai','vnd') NOT NULL,
   `NUOCSX` enum('Vietnam','Japan','America','China','Korean') NOT NULL,
   `HINHANH` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -119,13 +119,13 @@ CREATE TABLE `sp` (
 --
 
 INSERT INTO `sp` (`MASP`, `category_id`, `brand_id`, `TENSP`, `GIA`, `DUNGLUONG`, `DVT`, `NUOCSX`, `HINHANH`) VALUES
-(1, 'phone', 'apple', 'iPhone 16 Pro Max', '34.290.000đ', '128GB', 'Cai', 'China', 'images/iphone-16-pro-max.png'),
-(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', '27.990.000đ', '128GB', 'Cai', 'China', 'images/ss-s24-ultra222.png'),
-(3, 'phone', 'apple', 'iPhone 13', '13.450.000đ', '128GB', 'Cai', 'China', 'images/iphone-13.png'),
-(4, 'laptop', 'msi', 'Laptop MSI Modern 14 C13M-607VN', '14.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-modern14c13m.png'),
-(5, 'laptop', 'msi', 'Laptop MSI Gaming GF63 Thin 11UC-1228VN', '16.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-gf63.png'),
-(6, 'laptop', 'msi', 'Laptop MSI Prestige 14 AI Studio C1VEG-056VN', '32.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-prestige14.png'),
-(7, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW948', '190.000đ', 'None', 'Cai', 'China', 'images/headphone-havit-tw948.png');
+(1, 'phone', 'apple', 'iPhone 16 Pro Max', 34290000, '128GB', 'vnd', 'China', 'images/iphone-16-pro-max.png'),
+(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', 27990000, '128GB', 'vnd', 'China', 'images/ss-s24-ultra222.png'),
+(3, 'phone', 'apple', 'iPhone 13', 13450000, '128GB', 'Cai', 'China', 'images/iphone-13.png'),
+(4, 'laptop', 'msi', 'Laptop MSI Modern 14 C13M-607VN', 14990000, '128GB', 'vnd', 'China', 'images/laptop-msi-modern14c13m.png'),
+(5, 'laptop', 'msi', 'Laptop MSI Gaming GF63 Thin 11UC-1228VN', 16990000, '128GB', 'vnd', 'China', 'images/laptop-msi-gf63.png'),
+(6, 'laptop', 'msi', 'Laptop MSI Prestige 14 AI Studio C1VEG-056VN', 32990000, '128GB', 'vnd', 'China', 'images/laptop-msi-prestige14.png'),
+(7, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW948', 190000, 'None', 'vnd', 'China', 'images/headphone-havit-tw948.png');
 
 -- --------------------------------------------------------
 
