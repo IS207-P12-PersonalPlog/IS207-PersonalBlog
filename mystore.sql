@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2024 lúc 12:11 PM
+-- Thời gian đã tạo: Th10 17, 2024 lúc 03:57 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -37,10 +37,18 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
+('acer', 'Acer'),
 ('apple', 'Apple'),
+('asus', 'Asus'),
 ('dell', 'Dell'),
+('havit', 'Havit'),
+('hp', 'HP'),
+('lenovo', 'Lenovo'),
 ('msi', 'MSI'),
+('nokia', 'Nokia'),
+('oppo', 'Oppo'),
 ('samsung', 'Samsung'),
+('sony', 'Sony'),
 ('xiaomi', 'Xiaomi');
 
 -- --------------------------------------------------------
@@ -59,6 +67,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_title`) VALUES
+('headphone', 'Headphone'),
 ('laptop', 'Laptop'),
 ('phone', 'Phone');
 
@@ -99,10 +108,10 @@ CREATE TABLE `sp` (
   `brand_id` varchar(100) NOT NULL,
   `TENSP` varchar(100) NOT NULL,
   `GIA` varchar(50) NOT NULL,
-  `DUNGLUONG` enum('128GB','32GB','64GB','256GB') NOT NULL,
+  `DUNGLUONG` enum('128GB','32GB','64GB','256GB','None') NOT NULL,
   `DVT` enum('Cai') NOT NULL,
-  `NUOCSX` enum('Vietnam','Japan','America','China') NOT NULL,
-  `HINHANH` varchar(40) NOT NULL
+  `NUOCSX` enum('Vietnam','Japan','America','China','Korean') NOT NULL,
+  `HINHANH` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -111,8 +120,12 @@ CREATE TABLE `sp` (
 
 INSERT INTO `sp` (`MASP`, `category_id`, `brand_id`, `TENSP`, `GIA`, `DUNGLUONG`, `DVT`, `NUOCSX`, `HINHANH`) VALUES
 (1, 'phone', 'apple', 'iPhone 16 Pro Max', '34.290.000đ', '128GB', 'Cai', 'China', 'images/iphone-16-pro-max.png'),
-(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', '27.990.000đ', '128GB', 'Cai', 'China', 'images/ss-s24-ultra-xam-222.png'),
-(3, 'phone', 'apple', 'iPhone 13', '13.450.000đ', '128GB', 'Cai', 'China', 'images/iphone-13.png');
+(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', '27.990.000đ', '128GB', 'Cai', 'China', 'images/ss-s24-ultra222.png'),
+(3, 'phone', 'apple', 'iPhone 13', '13.450.000đ', '128GB', 'Cai', 'China', 'images/iphone-13.png'),
+(4, 'laptop', 'msi', 'Laptop MSI Modern 14 C13M-607VN', '14.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-modern14c13m.png'),
+(5, 'laptop', 'msi', 'Laptop MSI Gaming GF63 Thin 11UC-1228VN', '16.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-gf63.png'),
+(6, 'laptop', 'msi', 'Laptop MSI Prestige 14 AI Studio C1VEG-056VN', '32.990.000đ', '128GB', 'Cai', 'China', 'images/laptop-msi-prestige14.png'),
+(7, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW948', '190.000đ', 'None', 'Cai', 'China', 'images/headphone-havit-tw948.png');
 
 -- --------------------------------------------------------
 
@@ -196,7 +209,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `sp`
 --
 ALTER TABLE `sp`
-  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `useraccount`
