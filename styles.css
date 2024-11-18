@@ -28,8 +28,8 @@ body {
   z-index: 100;
 } */
 
-a{
-  text-decoration: none;
+.dropdown:hover .dropdown-menu {
+  display: flex;
 }
 
 .top-nav {
