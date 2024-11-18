@@ -1,13 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mystore";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+    $connect = new mysqli('localhost','root','','mystore');
+    if($connect->errno !== 0)
+    {
+        die("Error: Could not connect to the database. An error".$connect->error." ocurred.");
+    }
+    $connect->set_charset('utf8');
 ?>

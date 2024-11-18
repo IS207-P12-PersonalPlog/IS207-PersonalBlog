@@ -200,62 +200,28 @@
       <h2>ĐIỆN THOẠI NỔI BẬT</h2>
       <div class="filter-button-group button-group">
         <button data-filter = "*" class="btn btn-outline-secondary">All</button>
-        <button data-filter = ".iphone" class="btn btn-outline-secondary">Iphone</button>
-        <button data-filter = ".samsung" class="btn btn-outline-secondary">Samsung</button>
-        <button data-filter = ".xiaomi" class="btn btn-outline-secondary">Xiaomi</button>
+        <button data-filter = ".phone" class="btn btn-outline-secondary">Phone</button>
+        <button data-filter = ".laptop" class="btn btn-outline-secondary">Laptop</button>
+        <button data-filter = ".headphone" class="btn btn-outline-secondary">Headphone</button>
       </div>
       
       <!-- Card -->
       <div class="filterable_card" id="phone_list">
-        <div class="card iphone">
-          <img src="https://hoanghamobile.com/Uploads/2023/07/18/13-removebg-preview.png" alt="">
-          <div class="card_body">
-            <h6 class="card_title">iPhone 13 128GB | Chính hãng VN/A</h6>
-            <h5 class="card_value">13.000.000</h5>
-          </div>
-        </div>
-
-        <div class="card iphone">
-          <img src="https://cdn.tgdd.vn/Products/Images/42/303716/iphone-15-xanh-la-thumb-600x600.jpg" alt="">
-          <div class="card_body">
-            <h6 class="card_title">iPhone 15 256GB | Chính hãng VN/A</h6>
-            <h5 class="card_value">20.000.000</h5>
-          </div>
-        </div>
-
-        <div class="card iphone">
-          <img src="https://cdn.tgdd.vn/Products/Images/42/329149/s16/iphone-16-pro-max-titan-sa-mac-thumbnew-650x650.png" alt="">
-          <div class="card_body">
-            <h6 class="card_title">iPhone 16 promax 256GB | Chính hãng VN/A</h6>
-            <h5 class="card_value">35.000.000</h5>
-          </div>
-        </div>
-
-        <div class="card samsung">
-          <img src="https://uscom.vn/wp-content/uploads/2024/02/S24U-Xanh-2.webp" alt="">
-          <div class="card_body">
-            <h6 class="card_title">Samsung Galaxy S24 Ultra 12GB 256GB</h6>
-            <h5 class="card_value">30.000.000</h5>
-          </div>
-        </div>
-
-        <div class="card samsung">
-          <img src="https://clickbuy.com.vn/uploads/pro/samsung-galaxy-z-flip5-8gb-512gb-chinh-hang-lg-192602.jpg" alt="">
-          <div class="card_body">
-            <h6 class="card_title">Samsung Galaxy Z Flip5 512GB</h6>
-            <h5 class="card_value">15.000.000</h5>
-          </div>
-        </div>
-
-        <div class="card xiaomi">
-          <img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/xiaomi_14t_pro_titan_gray_1_a2eaabad5d.png" alt="">
-          <div class="card_body">
-            <h6 class="card_title">Xiaomi 14T 12GB 512GB</h6>
-            <h5 class="card_value">12.000.000</h5>
-          </div>
-        </div>
-      </div>
-
+        <?php
+          include "connect.php";
+          $sql = "SELECT * FROM `sp`";
+          $results = $connect->query($sql);
+          while($rows = $results->fetch_assoc()){
+            echo '<div class="card ' . $rows['category_id'] . '">';
+            echo '<img src="' . $rows['HINHANH'] . '" alt="">';
+            echo '<div class="card_body">';
+            echo '<h6 class="card_title">' . $rows['TENSP'] . '</h6>';
+            echo '<h5 class="card_value">' . number_format($rows['GIA'], 0, ',', '.') . '</h5>';
+            echo '</div>';
+            echo '</div>';
+          }
+          $connect->close();
+        ?>
     </div>
   </main>
 
