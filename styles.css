@@ -272,3 +272,7 @@ nav li {
 .register a:hover {
   text-decoration: underline;
 }
+
+.filterable_card a {
+  text-decoration: none;
+}
