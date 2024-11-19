@@ -75,8 +75,9 @@
         $results = checkuser($username, $password);
     
         if ($results->num_rows > 0) {
-            header("Location: index.php");
-            exit;
+          echo "<script>alert('Đăng nhập thành công');</script>";
+          echo "<script>window.location = 'index.php';</script>";
+          exit;
         } else {
             echo "<script>";
             echo "alert('Sai tài khoản hoặc mật khẩu');";
