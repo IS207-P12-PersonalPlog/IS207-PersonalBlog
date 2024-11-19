@@ -43,7 +43,7 @@
                       </li>
                       <li>
                         <br>
-                        <a href="#">
+                        <a href="login.php">
                           <div class="txt-name"><i class="fa fa-user" style="inline-size: auto; font-size: 20px;"></i> Đăng nhập</div>
                         </a>
                       </li>
