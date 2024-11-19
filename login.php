@@ -18,14 +18,14 @@
 <body>
   <div class="container page_login">
     <div class="login_form">
-      <form action="">
+      <form action="" method="POST">
         <h1>Login</h1>
         <div class="input_box">
-            <input type="text" placeholder="Username" required>
+            <input type="text" placeholder="Username" name="username" required>
             <i class="fa fa-user"></i>
         </div>
         <div class="input_box">
-            <input type="password" placeholder="Passwork" required>
+            <input type="password" placeholder="Password" name="password" required>
             <i class="fa fa-lock"></i>
         </div>
 
@@ -34,7 +34,7 @@
             <a href="">Forgot password</a>
         </div>
 
-        <button type="submit" class="btn_login">Login</button>
+        <input type="submit" class="btn_login" name="login" value="Login">
 
         <div class="register">
             Don't have an account? <a href="">Register</a>
@@ -60,8 +60,32 @@
 
       </form>
     </div>
-  </div>
+    <?php
+      function checkuser($user, $pass) {
+        include "connect.php";
+        $sql = "SELECT * FROM `useraccount` WHERE user_name='$user' AND user_password='$pass'";
+        $results = $connect->query($sql);
+        return $results;
+      }
+      if (isset($_POST['login']) && ($_POST['login']))
+      {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
+        $results = checkuser($username, $password);
+    
+        if ($results->num_rows > 0) {
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "<script>";
+            echo "alert('Sai tài khoản hoặc mật khẩu');";
+            echo "</script>";
+        }
+      }
+    ?>
+  </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
