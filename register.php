@@ -17,70 +17,68 @@
 
 <body>
   <div class="container page_login">
-    <div class="login_form">
+    <div class="register_form">
       <form action="" method="POST">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <div class="input_box">
             <input type="text" placeholder="Username" name="username" required>
-            <i class="fa fa-user"></i>
         </div>
         <div class="input_box">
             <input type="password" placeholder="Password" name="password" required>
-            <i class="fa fa-lock"></i>
+        </div>
+        <div class="input_box">
+            <input type="password" placeholder="Comfirm password" name="comfirm_pass" required>
+        </div>
+        <div class="input_box">
+            <input type="text" placeholder="Họ tên" name="ho_ten" required>
+        </div>
+        <div class="input_box">
+            <input type="text" placeholder="SĐT" name="sdt" required>
         </div>
 
-        <div class="remember_forgot">
-            <label for=""><input type="checkbox">Remember me</label>
-            <a href="">Forgot password</a>
-        </div>
+        <input type="submit" class="btn_register" name="register" value="Register">
 
-        <input type="submit" class="btn_login" name="login" value="Login">
-
-        <div class="register">
-            Don't have an account? <a href="register.php">Register</a>
-        </div>
-
-        <div class="social_login">
-            <hr><span>Or Connect With Social Media</span>
-            <div class="social-fields">
-                <div class="social-field google">
-                    <a href="#">
-                        <i class="fa fa-google"></i>
-                        Sign in with Google
-                    </a>
-                </div>
-                <div class="social-field facebook">
-                    <a href="#">
-                        <i class="fa fa-facebook-f"></i>
-                        Sign in with Facebook
-                    </a>
-                </div>
-            </div>
+        <div class="login">
+            Do you have an account? <a href="login.php">Login</a>
         </div>
 
       </form>
     </div>
     <?php
-      function checkuser($user, $pass) {
+      function register($user, $pass, $name, $sdt) {
         include "connect.php";
-        $sql = "SELECT * FROM `useraccount` WHERE user_name='$user' AND user_password='$pass'";
+        $currentDate = date("Y-m-d");
+        $sql = "INSERT INTO `useraccount`(`user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`) VALUES ('$user','$pass','$name','$sdt','$currentDate')";
         $results = $connect->query($sql);
         return $results;
       }
-      if (isset($_POST['login']) && ($_POST['login']))
+      if (isset($_POST['register']) && ($_POST['register']))
       {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $comfirm_password = $_POST['comfirm_pass'];
+        $ho_ten = $_POST['ho_ten'];
+        $sdt = $_POST['sdt'];
 
-        $results = checkuser($username, $password);
-    
-        if ($results->num_rows > 0) {
-            header("Location: index.php");
-            exit;
-        } else {
+        if ($password != $comfirm_password)
+        {
             echo "<script>";
-            echo "alert('Sai tài khoản hoặc mật khẩu');";
+            echo "alert('Mật khẩu không trùng nhau');";
             echo "</script>";
+        }
+        else
+        {
+            $results = register($username, $password, $ho_ten, $sdt);
+    
+            if ($results) {
+                echo "<script>alert('Đăng ký thành công');</script>";
+                echo "<script>window.location = 'login.php';</script>";
+                exit;
+            } else {
+                echo "<script>";
+                echo "alert('Đăng ký không thành công');";
+                echo "</script>";
+            }
         }
       }
     ?>
