@@ -1,16 +1,16 @@
 <?php
 include "connect.php";
 
-// Get the product ID from the URL (e.g., product.php?id=1)
-$product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+// Lấy mã sản phẩm từ index.php
+$product_id = isset($_GET['masp']) ? intval($_GET['masp']) : 0;
 
-// Prepare and execute the SQL query to fetch product details
+// thực thi truy vấn
 $sql = "SELECT sp.MASP, sp.TENSP, sp.GIA, sp.DUNGLUONG, sp.HINHANH, 
                categories.category_title, brands.brand_title 
         FROM sp 
         JOIN categories ON sp.category_id = categories.category_id
         JOIN brands ON sp.brand_id = brands.brand_id
-        WHERE sp.MASP = $product_id";
+        WHERE sp.MASP = ?";
 $stmt = $connect->prepare($sql);
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
@@ -19,9 +19,10 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $product = $result->fetch_assoc();
 } else {
-    die("Product not found.");
+    die("Không tìm thấy sản phẩm.");
 }
 
+// đóng kết nối
 $stmt->close();
 $connect->close();
 ?>
