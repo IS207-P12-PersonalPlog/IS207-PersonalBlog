@@ -39,13 +39,9 @@ $connect->close();
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet">
-  <style>
-  .product-img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-  }
-  </style>
+  <!-- Main css file -->
+  <link href="styles.css"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -95,13 +91,8 @@ $connect->close();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-  $(document).ready(function() {
-    $('#addToCartBtn').click(function() {
-      alert('Product added to cart!');
-    });
-  });
-  </script>
+  <!-- Main script file -->
+  <script src="app.js"></script>
 </body>
 
 </html>
