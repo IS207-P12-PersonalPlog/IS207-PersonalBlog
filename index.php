@@ -47,7 +47,7 @@
                 <nav>
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="giohang.php">
                         <i class="fa fa-shopping-cart"
                           style="font-size:28px"></i>
                         <div class="txt-name">Giỏ hàng <span class="cart-total-items amount">(0)</span></div>

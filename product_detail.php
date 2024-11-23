@@ -43,6 +43,16 @@ $connect->close();
   <!-- Main css file -->
   <link href="styles.css"
     rel="stylesheet">
+  <script src="jquery.js"></script>
+  <!-- script nhan nut them san pham -->
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        var url = "themgiohang.php?masp=" + $product_id;
+        window.open(url, "_self");
+      });
+    });
+  </script>
 </head>
 
 <body>
