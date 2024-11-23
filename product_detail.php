@@ -47,9 +47,11 @@ $connect->close();
   <!-- script nhan nut them san pham -->
   <script>
     $(document).ready(function(){
-      $("button").click(function(){
-        var url = "themgiohang.php?masp=" + $product_id;
-        window.open(url, "_self");
+      $(".addToCartBtn").click(function(){
+        var urlParams = new URLSearchParams(window.location.search);
+        var masp = urlParams.get('masp');
+        var url = "themgiohang.php?masp=" + masp;
+        window.location.href = url;
       });
     });
   </script>
@@ -85,8 +87,7 @@ $connect->close();
         </div>
 
         <!-- Add to Cart Button -->
-        <button class="btn btn-primary"
-          id="addToCartBtn">Add to Cart</button>
+        <button class="btn btn-primary addToCartBtn">Add to Cart</button>
 
         <!-- Static Reviews Section -->
         <div class="mt-5">
