@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2024 lúc 04:29 AM
+-- Thời gian đã tạo: Th10 23, 2024 lúc 02:56 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -86,6 +86,37 @@ CREATE TABLE `cthd` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `ctsp`
+--
+
+CREATE TABLE `ctsp` (
+  `MASP` int(11) NOT NULL,
+  `KichThuoc` text DEFAULT NULL,
+  `CongNgheManHinh` text DEFAULT NULL,
+  `DoPhanGiai` text DEFAULT NULL,
+  `GPU` text DEFAULT NULL,
+  `RAM` text DEFAULT NULL,
+  `BoNhoTrong` text DEFAULT NULL,
+  `Pin` text DEFAULT NULL,
+  `OS` text DEFAULT NULL,
+  `CPU` text DEFAULT NULL,
+  `TrongLuong` text DEFAULT NULL,
+  `ChatLieu` text DEFAULT NULL,
+  `TDRaMat` text DEFAULT NULL,
+  `MoTa` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ctsp`
+--
+
+INSERT INTO `ctsp` (`MASP`, `KichThuoc`, `CongNgheManHinh`, `DoPhanGiai`, `GPU`, `RAM`, `BoNhoTrong`, `Pin`, `OS`, `CPU`, `TrongLuong`, `ChatLieu`, `TDRaMat`, `MoTa`) VALUES
+(1, '6.9 inches', 'Super Retina XDR OLED', '2868 x 1320 pixels', 'GPU 6 lõi mới', '256 GB', '256 GB', NULL, 'iOS 18', 'CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi hiệu suất', '227 gram', 'Titanium', '09/2024', 'iPhone 16 Pro Max có màn hình OLED 6.9 inch, với công nghệ màn hình Super Retina XDR, camera gồm: ống kính Fusion 48MP và Ultra Wide 48MP và camera Telephoto 5x 12MP, kết hợp camera trước 12MP chụp hình sắc nét đến từng chi tiết nhỏ, ghi lại những khoảnh khắc bên gia đình. Chiếc điện thoại iPhone 16 mới này được trang bị chip A18 Pro với 6 lõi CPU và 6 lõi GPU cùng với Neural Engine 16 lõi.'),
+(2, '6.8 inches', 'Dynamic AMOLED 2X', '1440 x 3088 pixels (QHD+)', 'Adreno 740', '12 GB', '512 GB', '5000 mAh', 'Android', '1x3.36 GHz Cortex-X3 & 2x2.8 GHz Cortex-A715 & 2x2.8 GHz Cortex-A710 & 3x2.0 GHz Cortex-A510', '233 g', 'Nhôm', '02/2023', 'Samsung Galaxy S23 Ultra 12GB 512GB tạo nên đột phá mạnh mẽ về mặt hiệu năng khi được trang bị vi xử lý Snapdragon 8 Gen 2 vượt trội cùng 12GB bộ nhớ RAM. Chất lượng hiển thị siêu sắc nét trên S23 Ultra tới từ tầm nền Dynamic AMOLED 2X 120Hz thế hệ mới. Bên cạnh đó, smartphone này còn sở hữu cụm camera cao cấp với độ rõ nét đạt tới 200MP. Viên pin 5000mAh cùng sạc nhanh 45W giúp nâng cao thời lượng sử dụng lên một tầm cao mới.');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `hoadon`
 --
 
@@ -138,17 +169,10 @@ CREATE TABLE `useraccount` (
   `user_name` varchar(20) NOT NULL,
   `user_password` varchar(50) NOT NULL,
   `ho_ten` varchar(50) NOT NULL,
-  `sdt` int(10) DEFAULT NULL,
+  `sdt` varchar(10) DEFAULT NULL,
   `ngay_dk` date NOT NULL,
-  `allow_edit` tinyint(1) DEFAULT NULL
+  `admin_perr` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `useraccount`
---
-
-INSERT INTO `useraccount` (`user_id`, `user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`, `allow_edit`) VALUES
-(1, 'leducdat', '123456', 'Lê Đức Đạt', 987654321, '2024-11-16', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -172,6 +196,12 @@ ALTER TABLE `categories`
 ALTER TABLE `cthd`
   ADD KEY `MASP` (`MASP`),
   ADD KEY `SOHD` (`SOHD`);
+
+--
+-- Chỉ mục cho bảng `ctsp`
+--
+ALTER TABLE `ctsp`
+  ADD KEY `MASP` (`MASP`);
 
 --
 -- Chỉ mục cho bảng `hoadon`
@@ -227,6 +257,12 @@ ALTER TABLE `useraccount`
 ALTER TABLE `cthd`
   ADD CONSTRAINT `cthd_ibfk_1` FOREIGN KEY (`MASP`) REFERENCES `sp` (`MASP`),
   ADD CONSTRAINT `cthd_ibfk_2` FOREIGN KEY (`SOHD`) REFERENCES `hoadon` (`SOHD`);
+
+--
+-- Các ràng buộc cho bảng `ctsp`
+--
+ALTER TABLE `ctsp`
+  ADD CONSTRAINT `ctsp_ibfk_1` FOREIGN KEY (`MASP`) REFERENCES `sp` (`MASP`);
 
 --
 -- Các ràng buộc cho bảng `hoadon`
