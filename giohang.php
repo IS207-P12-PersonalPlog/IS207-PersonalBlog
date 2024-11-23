@@ -216,7 +216,44 @@ ob_start();
         }
         if(count($giohang))
         {
-            
+?>        <form method="post">
+            <table border="1" align="center" cellspacing="0">
+              <tr><th colspan="6">Giỏ hàng</th></tr>
+              <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                <th>Xóa</th>
+              </tr>
+              <?php
+              $tong = 0;
+              foreach($giohang as $id => $sl)
+              {
+                $sql = "select * from sp where MASP='$id'";
+                $result = $connect->query($sql);
+                $row = $result->fetch_assoc();
+              ?>
+              <tr>
+                <td><?php echo $row['TENSP']; ?></td>
+                <td><?php echo $row['GIA']; ?></td>
+                <td><?php echo $sl; ?></td>
+                <td><?php echo $sl * $row['GIA']; ?></td>
+                <td>Xóa</td>
+              </tr>
+              <?php
+              $tong += $sl * $row['GIA'];
+              }
+              ?>
+              <tr>
+                <td colspan="6">
+                  Tổng cộng: <?php echo $tong; ?>
+                </td>
+              </tr>
+            </table>
+          </form>
+        
+<?php
         }
     }
 ?>
