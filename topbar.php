@@ -74,11 +74,11 @@
                 <ul class="dropdown-menu"
                   aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item"
-                      href="#">iPhone</a></li>
+                      href="list_product.php?brand_id=apple&category_id=phone">iPhone</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Samsung</a></li>
+                      href="list_product.php?brand_id=samsung&category_id=phone">Samsung</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Xiaomi</a></li>
+                      href="list_product.php?brand_id=xiaomi&category_id=phone">Xiaomi</a></li>
                 </ul>
               </li>
             </ul>
@@ -100,11 +100,11 @@
                 <ul class="dropdown-menu"
                   aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item"
-                      href="#">Asus</a></li>
+                      href="list_product.php?brand_id=asus&category_id=laptop">Asus</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Lenovo</a></li>
+                      href="list_product.php?brand_id=msi&category_id=laptop">MSI</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Mac</a></li>
+                      href="list_product.php?brand_id=apple&category_id=laptop">Mac</a></li>
                 </ul>
               </li>
             </ul>
@@ -116,7 +116,7 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
-                  href="#"
+                  href=""
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -126,7 +126,7 @@
                 <ul class="dropdown-menu"
                   aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item"
-                      href="#">Có dây</a></li>
+                      href="list_product.php?brand_id=havit">Havit</a></li>
                   <li><a class="dropdown-item"
                       href="#">Gaming</a></li>
                   <li><a class="dropdown-item"
