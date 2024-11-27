@@ -133,8 +133,8 @@
     <div class="container">
       <h2>Sắp xếp theo</h2>
       <div class="filter-button-group button-group">
-        <a class="btn btn-outline-secondary" href="?<?php echo $_SERVER['QUERY_STRING']; ?>&sort=desc">Giá cao xuống thấp</a>
-        <a class="btn btn-outline-secondary" href="?<?php echo $_SERVER['QUERY_STRING']; ?>&sort=asc">Giá thấp lên cao</a>
+        <a class="btn btn-outline-secondary" href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'desc'])); ?>">Giá cao xuống thấp</a>
+        <a class="btn btn-outline-secondary" href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'asc'])); ?>">Giá thấp lên cao</a>
       </div>
 
       <!-- Card -->
