@@ -67,16 +67,26 @@
         $results = $connect->query($sql);
         return $results;
       }
+      function getuser($user) {
+        include "connect.php";
+        $sql = "SELECT user_id FROM `useraccount` WHERE user_name='$user'";
+        $results = $connect->query($sql);
+        return $results;
+      }
       if (isset($_POST['login']) && ($_POST['login']))
       {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
         $results = checkuser($username, $password);
+        
+        $user_rows = getuser($username);
+        $user_row = $user_rows->fetch_row();
+        $user_id = $user_row[0];
     
         if ($results->num_rows > 0) {
           echo "<script>alert('Đăng nhập thành công');</script>";
-          echo "<script>window.location = 'index.php';</script>";
+          echo "<script>window.location = 'index.php?user_id=$user_id';</script>";
           exit;
         } else {
             echo "<script>";

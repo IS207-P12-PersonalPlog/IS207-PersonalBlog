@@ -5,7 +5,7 @@
       <div class="container">
         <div class="header-top flexbox flex-align-item">
           <div class="logo">
-            <a href="http://localhost/IS207-PersonalBlog/">
+            <a href="http://localhost:8080/IS207-PersonalBlog/index.php">
               <img src="https://cello.vn/image/catalog/logo.png"
                 title="Cello"
                 alt="Cello"
@@ -32,7 +32,21 @@
                       <br>
                       <a href="login.php">
                         <div class="txt-name"><i class="fa fa-user"
-                            style="inline-size: auto; font-size: 20px;"></i> Đăng nhập</div>
+                            style="inline-size: auto; font-size: 20px;"></i>
+                            <?php 
+                              if (isset($_GET['user_id'])) {
+                                $user_id = $_GET['user_id'];
+                                include "connect.php";
+                                $sql = "SELECT * FROM `useraccount` WHERE user_id='$user_id'";
+                                $results = $connect->query($sql);
+                                while ($row = $results->fetch_row()) {
+                                  echo " $row[1]";
+                                }
+                              }else {
+                                echo " Đăng nhập"; 
+                              }
+                            ?>
+                        </div>
                       </a>
                     </li>
                   </ul>
