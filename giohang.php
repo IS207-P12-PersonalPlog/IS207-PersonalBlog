@@ -1,7 +1,3 @@
-<?php
-session_start();
-ob_start();
-?>
 <!DOCTYPE html>
 <html>
 <head xmlns="http://www.w3.org/1999/xhtml>
@@ -17,6 +13,7 @@ ob_start();
 <?php
     include "topbar.php";
     include "connect.php";
+    echo "<div class='container'>";
     if(!isset($_SESSION['giohang']))
     {
         echo "<h1>Giỏ hàng của bạn</h1>";
@@ -87,5 +84,6 @@ ob_start();
         }
     }
 ?>
+</div>
 </body>
 </html>
