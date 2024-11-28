@@ -12,7 +12,7 @@ if($id != "")
     {
         $_SESSION['giohang'][$id] = 1;
     }
-    header("location:giohang.php");
+    header("location: giohang.php");
 }
 else
 {

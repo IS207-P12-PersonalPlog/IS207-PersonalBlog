@@ -31,4 +31,28 @@ $(document).ready(function() {
   $('#addToCartBtn').click(function() {
     alert('Product added to cart!');
   });
+
+  $('.removeItem').on('click', function(){
+    var masp = $(this).val();
+    $.ajax({
+        method: "POST",
+        url: "functions/handlecart.php",
+        data:{
+            "masp": masp,
+            "scope": "delete"
+        },
+        success: function(response){
+            if(response == 200)
+            {
+                // $('#listItemSuperCart').load(location.href + "#listItemSuperCart");
+                location.reload();
+            }
+            else{
+              alert("Some error has happen");
+            }
+        }
+    });
+  });
+
 });
+

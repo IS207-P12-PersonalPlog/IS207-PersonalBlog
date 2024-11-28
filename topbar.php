@@ -1,11 +1,9 @@
-<html>
-<body>
 <header>
     <div class="top-nav">
       <div class="container">
         <div class="header-top flexbox flex-align-item">
           <div class="logo">
-            <a href="http://localhost:8080/IS207-PersonalBlog/index.php">
+            <a href="http://localhost/IS207-PersonalBlog/">
               <img src="https://cello.vn/image/catalog/logo.png"
                 title="Cello"
                 alt="Cello"
@@ -202,5 +200,3 @@
       </nav>
     </div>
 </header>
-</body>
-</html>

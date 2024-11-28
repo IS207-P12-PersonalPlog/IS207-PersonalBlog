@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <script src="jquery.js"></script>
+  <script src="custom.js"></script>
   <meta content="width=device-width, initial-scale=1.0"
     name="viewport">
   <title>IS207-PersonalBlog</title>
