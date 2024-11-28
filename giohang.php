@@ -7,6 +7,7 @@ ob_start();
 <head xmlns="http://www.w3.org/1999/xhtml>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <script src="jquery.js"></script>
+    <script src="js/custom.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Gio hang</title>
     <?php include "header.php"; ?>
@@ -64,7 +65,7 @@ ob_start();
                 <div class="product-info">
                   <div class="d-flex justify-content-between align-items-start">
                     <a href="product_detail.php?masp=<?php echo $row['MASP']?> " class="product-name"><?php echo $row['TENSP']?></a>
-                    <button class="remove-item">Xóa</button>
+                    <button class="removeItem">Xóa</button>
                   </div>
                   <div>
                     <div class="block-box-price"><?php echo number_format($row['GIA'],0,',','.')."đ"?></div>
