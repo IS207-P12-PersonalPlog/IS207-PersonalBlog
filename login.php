@@ -14,7 +14,35 @@
   <link href="styles.css" rel="stylesheet">
 
 </head>
+<?php
+  require_once 'vendor_login/autoload.php';
 
+  // init configuration
+  $clientID = '793111758450-45suidvlpeje5dtc8n00nu1lef13u920.apps.googleusercontent.com';
+  $clientSecret = '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';
+  $redirectUri = 'http://localhost:8080/IS207-PersonalBlog';
+
+  // create Client Request to access Google API
+  $client = new Google_Client();
+  $client->setClientId($clientID);
+  $client->setClientSecret($clientSecret);
+  $client->setRedirectUri($redirectUri);
+  $client->addScope("email");
+  $client->addScope("profile");
+
+  // authenticate code from Google OAuth Flow
+  if (isset($_GET['code'])) {
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token['access_token']);
+
+    // get profile info
+    $google_oauth = new Google_Service_Oauth2($client);
+    $google_account_info = $google_oauth->userinfo->get();
+    $email =  $google_account_info->email;
+    $name =  $google_account_info->name;
+    // now you can use this profile info to create account in your website and make user logged in.
+  }
+?>
 <body>
   <div class="container page_login">
     <div class="login_form">
@@ -44,10 +72,9 @@
             <hr><span>Or Connect With Social Media</span>
             <div class="social-fields">
                 <div class="social-field google">
-                    <a href="#">
-                        <i class="fa fa-google"></i>
-                        Sign in with Google
-                    </a>
+                    <?php 
+                      echo "<a href='".$client->createAuthUrl()."'><i class='fa fa-google'></i> Sign in with Google</a>";
+                    ?>
                 </div>
                 <div class="social-field facebook">
                     <a href="#">
@@ -105,3 +132,4 @@
 </body>
 
 </html>
+
