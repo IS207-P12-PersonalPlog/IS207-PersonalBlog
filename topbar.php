@@ -1,3 +1,4 @@
+<?php session_start();?>
 <header>
     <div class="top-nav">
       <div class="container">
@@ -23,13 +24,19 @@
                       <a href="giohang.php">
                         <i class="fa fa-shopping-cart"
                           style="font-size:28px"></i>
-                        <div class="txt-name">Giỏ hàng <span class="cart-total-items amount">(0)</span></div>
+                          <div class="txt-name">Giỏ hàng <span class="cart-total-items amount">
+                            (<?php 
+                            if(!isset($_SESSION['giohang']) 
+                            || count($_SESSION['giohang']) == 0) echo 0;
+                            else echo count($_SESSION['giohang']);
+                            ?>)
+                          </span></div>
                       </a>
                     </li>
                     <li>
                       <br>
                       <?php
-                            session_start();
+                            
                             
                             if (isset($_GET['user_id'])) {
                                 $user_id = $_GET['user_id'];

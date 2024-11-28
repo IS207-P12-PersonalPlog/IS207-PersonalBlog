@@ -27,8 +27,8 @@
       ?>
       <h1>Giỏ hàng của bạn</h1>
       -------------------------
-      <p>Giỏ hàng của bạn đang trống.<\p>
-      <p>Hãy chọn thêm sản phẩm để mua sắm nhé<\p>
+      <p>Giỏ hàng của bạn đang trống.
+      <p>Hãy chọn thêm sản phẩm để mua sắm nhé
       <?php
     }
     else
