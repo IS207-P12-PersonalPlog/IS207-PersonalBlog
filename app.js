@@ -21,7 +21,7 @@ $(window).scroll(function(){
 
 $(document).ready(function() {
   // scroll to top when refresh page
-  $('html, body').animate({scrollTop: 0}, 'fast');
+  //$('html, body').animate({scrollTop: 0}, 'fast');
   // scroll to top page when click button home or button scroll
   $('.scrollup').click(function() {
       $('html, body').animate({scrollTop : 0}, 600);

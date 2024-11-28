@@ -131,16 +131,10 @@
 
     <!-- Filter các loại điện thoại -->
     <div class="container">
-      <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+      <h2>Sắp xếp theo</h2>
       <div class="filter-button-group button-group">
-        <button data-filter="*"
-          class="btn btn-outline-secondary">All</button>
-        <button data-filter=".phone"
-          class="btn btn-outline-secondary">Phone</button>
-        <button data-filter=".laptop"
-          class="btn btn-outline-secondary">Laptop</button>
-        <button data-filter=".headphone"
-          class="btn btn-outline-secondary">Headphone</button>
+        <a class="btn btn-outline-secondary" href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'desc'])); ?>">Giá cao xuống thấp</a>
+        <a class="btn btn-outline-secondary" href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'asc'])); ?>">Giá thấp lên cao</a>
       </div>
 
       <!-- Card -->
@@ -148,11 +142,22 @@
         id="phone_list">
         <?php
           include "connect.php";
-          $sql = "SELECT * FROM `sp`";
+          $sp = $_GET['brand_id'];
+          $loaiSp =$_GET['category_id'];
+          if (isset($_GET['sort'])) {
+            if ($_GET['sort'] === 'desc') {
+              $sortOrder = 'DESC';
+            } else {
+              $sortOrder = 'ASC';
+            }
+            $sql = "SELECT * FROM `sp` WHERE brand_id='$sp' AND category_id='$loaiSp' ORDER BY GIA $sortOrder";
+          } else{
+            $sql = "SELECT * FROM `sp` WHERE brand_id='$sp' AND category_id='$loaiSp'";
+          }
           $results = $connect->query($sql);
           while($rows = $results->fetch_assoc()){
-            echo '<a href="product_detail.php?masp=' . $rows['MASP'] . '" class="card ' . $rows['category_id'] . '" type="' . $rows['MASP'] . '">';
-            echo '<div>';
+            echo '<a href="product_detail.php?masp=' . $rows['MASP'] . '">';
+            echo '<div class="card ' . $rows['category_id'] . '" type="' . $rows['MASP'] . '">';
             echo '<img src="' . $rows['HINHANH'] . '" alt="">';
             echo '<div class="card_body">';
             echo '<h6 class="card_title">' . $rows['TENSP'] . '</h6>';
