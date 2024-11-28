@@ -58,7 +58,10 @@ $connect->close();
 </head>
 
 <body>
-  <?php include "topbar.php";?>
+  <?php 
+    include "header.php"; 
+    include "topbar.php";
+  ?>
   <div class="container mt-5">
     <div class="row">
       <!-- Product Image Section -->

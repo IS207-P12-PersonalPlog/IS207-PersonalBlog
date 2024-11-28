@@ -30,24 +30,46 @@
                     </li>
                     <li>
                       <br>
-                      <a href="login.php">
-                        <div class="txt-name"><i class="fa fa-user"
-                            style="inline-size: auto; font-size: 20px;"></i>
-                            <?php 
-                              if (isset($_GET['user_id'])) {
+                      <?php
+                            session_start();
+                            
+                            if (isset($_GET['user_id'])) {
                                 $user_id = $_GET['user_id'];
                                 include "connect.php";
                                 $sql = "SELECT * FROM `useraccount` WHERE user_id='$user_id'";
                                 $results = $connect->query($sql);
-                                while ($row = $results->fetch_row()) {
-                                  echo " $row[1]";
+
+                                if ($results->num_rows > 0) {
+                                    $row = $results->fetch_row();
+                                    $_SESSION['user_id'] = $row[1];
                                 }
-                              }else {
+                            }
+
+                            if (isset($_SESSION['user_id'])) {
+                                // Hiển thị thông tin người dùng nếu đã đăng nhập
+                                $username = $_SESSION['user_id'];
+                                echo "<div class='txt-name'>";
+                                echo "<i class='fa fa-user' style='inline-size: auto; font-size: 20px;'></i>";
+                                echo " $username";
+                                echo "<br><a href='index.php?logout=true'>Đăng xuất</a>";
+                                echo "</div>";
+                            } else {
+                                // Hiển thị nút Đăng nhập nếu chưa đăng nhập
+                                echo "<div class='txt-name'>";
+                                echo "<a href='login.php'>";
+                                echo "<i class='fa fa-user' style='inline-size: auto; font-size: 20px;'></i>";
                                 echo " Đăng nhập"; 
+                                echo "</a>";
+                                echo "</div>";
+                            }
+                              // Đoạn mã xử lý đăng xuất
+                              if (isset($_GET['logout'])) {
+                                session_unset();
+                                session_destroy();
+                                header("Location: index.php");
+                                exit;
                               }
-                            ?>
-                        </div>
-                      </a>
+                          ?>
                     </li>
                   </ul>
                 </nav>
