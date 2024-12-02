@@ -110,6 +110,10 @@ p {
   unicode-bidi: isolate;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -165,8 +169,23 @@ nav li {
   height: 510px;
 }
 
+.card_mini {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  width: 95%;
+  margin: 10px;
+  height: 100px;
+  display: flex;
+}
+
 .card img {
   width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.card_mini img {
+  width: 30%;
   border-radius: 8px 8px 0 0;
 }
 
@@ -181,8 +200,21 @@ nav li {
   height: 50px;
 }
 
+.cardmini_title {
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  height: 20px;
+}
+
 .card_value {
   font-size: 25px;
+  font-weight: 700;
+  color: red;
+}
+
+.cardmini_value {
+  font-size: 15px;
   font-weight: 700;
   color: red;
 }
@@ -282,10 +314,6 @@ nav li {
 
 .register a:hover {
   text-decoration: underline;
-}
-
-.filterable_card a {
-  text-decoration: none;
 }
 
 .social_login {
@@ -442,4 +470,12 @@ div#listItemSuperCart{
   cursor: pointer;
   height: 40px;
   padding: 5px 20px;
+}
+
+.search_product {
+  position: absolute;
+  top: 80px;
+  width: 300px;
+  height: 300px;
+  display: none;
 }

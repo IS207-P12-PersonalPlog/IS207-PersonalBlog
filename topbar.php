@@ -14,8 +14,14 @@
           <div class="header-right">
             <div class="header-right-inner flexbox">
               <div class="header-top-left">
-                <div class="search"><input type="text"
-                    placeholder="Tìm kiếm"><button>Tìm kiếm</button></div>
+                <div class="search">
+                  <form action="" method="get">
+                    <input type="text" placeholder="Tìm kiếm" class="search-product">
+                    <div class="search_product">
+                    
+                    </div>
+                  </form>
+                </div>
               </div>
               <div class="header-top-right flexbox flex-align-item flex-justify-content-end">
                 <nav>
@@ -71,6 +77,7 @@
                               if (isset($_GET['logout'])) {
                                 session_unset();
                                 session_destroy();
+                                
                                 header("Location: index.php");
                                 exit;
                               }
@@ -207,3 +214,22 @@
       </nav>
     </div>
 </header>
+
+<script>
+  $(document).ready(function(){
+    $(".search-product").change(function(){
+      $(".search_product").css({"display": "block", "background-color": "white"});
+      var tensp=$(this).val();
+      $.post("tim_sp.php",
+      {
+        tensp:tensp 
+      },
+      function(data,status){  
+        if(status=="success")
+        {
+          $(".search_product").html(data); 
+        }
+      }); 
+    });
+  });   
+</script>
