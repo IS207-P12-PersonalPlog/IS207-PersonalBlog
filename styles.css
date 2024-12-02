@@ -101,6 +101,15 @@ div {
   unicode-bidi: isolate;
 }
 
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -392,5 +401,45 @@ div#listItemSuperCart{
 }
 
 .d-flex{
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+#stickyBottomBar{
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid rgba(145, 158, 171, .239);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  bottom: 0;
+  box-shadow: 0 -4px 20px -1px rgba(40, 124, 234, .15);
   display: flex;
+  justify-content: space-between;
+  left: 50%;
+  margin: auto;
+  max-width: 600px;
+  padding: 10px 10px 15px;
+  position: fixed;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 11;
+}
+
+#stickyBottomBar .price-temp span {
+  color: #d70018;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#stickyBottomBar .btn-action {
+  background-color: #d70018;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  padding: 5px 20px;
 }

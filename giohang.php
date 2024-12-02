@@ -77,6 +77,7 @@
                       </div>
                       <div>
                         <div class="block-box-price"><?php echo number_format($row['GIA'],0,',','.')."đ"?></div>
+                        <?php $tongtien += $row['GIA']?>
                         <div class="action d-flex">
                           <span class="minus"></span>
                           <input type="text" readonly value="<?php echo $sl?>">
@@ -90,6 +91,23 @@
               }
               ?>  
             </div>
+          </div>
+          <div id="stickyBottomBar">
+            <div class="temp-info d-flex flex-column">
+              <div class="price-temp">
+                <p>
+                  Tạm tính: 
+                  <span><?php echo number_format($tongtien,0,',','.')."đ"?></span>
+                </p>
+              </div>
+            </div>
+            <button class="btn-action">
+              Mua Ngay(<?php 
+              if(!isset($_SESSION['giohang'])
+              || count($_SESSION['giohang']) == 0) echo 0;
+              else echo count($_SESSION['giohang']);
+              ?>)
+            </button>
           </div>
           <?php
         }
