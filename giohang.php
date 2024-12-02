@@ -25,10 +25,17 @@
     if(!isset($_SESSION['giohang']) || count($_SESSION['giohang']) == 0)
     {
       ?>
-      <h1>Giỏ hàng của bạn</h1>
-      -------------------------
-      <p>Giỏ hàng của bạn đang trống.
-      <p>Hãy chọn thêm sản phẩm để mua sắm nhé
+      <div class="container block-info mt-3">
+        <div class="nothing-in-cart">
+          <img src="https://cdn2.cellphones.com.vn/x,webp/media/cart/Cart-empty-v2.png" alt="Giỏ hàng rỗng">
+          <span class="my-3">
+            Giỏ hàng của bạn đang trống. 
+            <br>
+            Hãy chọn thêm sản phẩm để mua sắm nhé
+          </span>
+        </div>
+      </div>
+      
       <?php
     }
     else
