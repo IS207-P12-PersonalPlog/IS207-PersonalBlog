@@ -84,7 +84,7 @@
                       </div>
                       <div>
                         <div class="block-box-price"><?php echo number_format($row['GIA'],0,',','.')."đ"?></div>
-                        <?php $tongtien += $row['GIA']?>
+                        <?php $tongtien += $row['GIA'] * $sl?>
                         <div class="action d-flex">
                           <span class="minus"></span>
                           <input type="text" readonly value="<?php echo $sl?>">
