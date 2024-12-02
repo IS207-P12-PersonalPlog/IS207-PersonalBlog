@@ -50,7 +50,8 @@ $connect->close();
       $(".addToCartBtn").click(function(){
         var urlParams = new URLSearchParams(window.location.search);
         var masp = urlParams.get('masp');
-        var url = "themgiohang.php?masp=" + masp;
+        var quantity = document.getElementById("quantity").value;
+        var url = "themgiohang.php?masp=" + masp + "&quantity="+quantity;
         window.location.href = url;
       });
     });

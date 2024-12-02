@@ -34,7 +34,16 @@
                             (<?php 
                             if(!isset($_SESSION['giohang']) 
                             || count($_SESSION['giohang']) == 0) echo 0;
-                            else echo count($_SESSION['giohang']);
+                            else
+                            {
+                              // $totalProduct = 0;
+                              // foreach($_SESSION['giohang'] as $id => $sl)
+                              // {
+                              //   $totalProduct += $sl;
+                              // }
+                              // echo $totalProduct;
+                              echo count($_SESSION['giohang']);
+                            }
                             ?>)
                           </span></div>
                       </a>
