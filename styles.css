@@ -25,7 +25,17 @@ header{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.header-top-left {
+  width: 30%;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -48,28 +58,6 @@ header{
   margin-left: auto;
   width: 100%;
   max-width: 1270px;
-  
-}
-
-.header-right .header-right-inner .header-top-left
-{
-  /* padding-right: 25px;
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  padding-right: 35px; */
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.flex-align-item {
-  align-items: center;
 }
 
 .flexbox{
@@ -521,13 +509,11 @@ div#listItemSuperCart{
   padding: 5px 20px;
 }
 
-<<<<<<< Updated upstream
 .search_product {
   position: absolute;
-  top: 80px;
+  top: 160px;
   width: 300px;
   height: 300px;
   display: none;
+  border-radius: 10px;
 }
-=======
->>>>>>> Stashed changes

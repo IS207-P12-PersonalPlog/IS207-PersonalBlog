@@ -3,6 +3,7 @@
     <div class="top-nav">
       <div class="container">
         <div class="header-top flexbox flex-align-item">
+          <!-- Logo -->
           <div class="logo">
             <a href="http://localhost/IS207-PersonalBlog/">
               <img src="https://cello.vn/image/catalog/logo.png"
@@ -11,18 +12,19 @@
                 class="img-responsive">
             </a>
           </div>
+          <div class="header-top-left">
+            <!-- Search product -->
+            <div class="search">
+              <form action="" method="get">
+                <input type="text" placeholder="Tìm kiếm" class="search-product">
+                <div class="search_product">
+                
+                </div>
+              </form>
+            </div>
+          </div>
           <div class="header-right">
             <div class="header-right-inner flexbox">
-              <div class="header-top-left">
-                <div class="search">
-                  <form action="" method="get">
-                    <input type="text" placeholder="Tìm kiếm" class="search-product">
-                    <div class="search_product">
-                    
-                    </div>
-                  </form>
-                </div>
-              </div>
               <div class="header-top-right flexbox flex-align-item flex-justify-content-end">
                 <nav>
                   <ul>
