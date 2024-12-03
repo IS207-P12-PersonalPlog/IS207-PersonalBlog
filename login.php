@@ -15,12 +15,12 @@
 
 </head>
 <?php
-  require_once 'vendor_login/autoload.php';
+  require_once 'vendor/autoload.php';
 
   // init configuration
   $clientID = '793111758450-45suidvlpeje5dtc8n00nu1lef13u920.apps.googleusercontent.com';
   $clientSecret = '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';
-  $redirectUri = 'http://localhost:8080/IS207-PersonalBlog';
+  $redirectUri = 'http://localhost:8080/IS207-PersonalBlog/login.php';
 
   // create Client Request to access Google API
   $client = new Google_Client();
