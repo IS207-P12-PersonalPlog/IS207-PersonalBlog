@@ -45,17 +45,7 @@ $connect->close();
     rel="stylesheet">
   <script src="jquery.js"></script>
   <!-- script nhan nut them san pham -->
-  <script>
-    $(document).ready(function(){
-      $(".addToCartBtn").click(function(){
-        var urlParams = new URLSearchParams(window.location.search);
-        var masp = urlParams.get('masp');
-        var quantity = document.getElementById("quantity").value;
-        var url = "themgiohang.php?masp=" + masp + "&quantity="+quantity;
-        window.location.href = url;
-      });
-    });
-  </script>
+  
 </head>
 
 <body>
@@ -111,5 +101,26 @@ $connect->close();
   <!-- Main script file -->
   <script src="app.js"></script>
 </body>
-
+  <script>
+    $(document).ready(function(){
+      $(".addToCartBtn").click(function(){
+        <?php
+          if(isset($_SESSION['user_id'])) {
+        ?>
+        var urlParams = new URLSearchParams(window.location.search);
+        var masp = urlParams.get('masp');
+        var quantity = document.getElementById("quantity").value;
+        var url = "themgiohang.php?masp=" + masp + "&quantity="+quantity;
+        window.location.href = url;
+        <?php
+          } else {
+        ?>
+        alert("Bạn cần phải đăng nhập");
+        window.location.href = "login.php";
+        <?php
+          }
+        ?>
+      });
+    });
+  </script>
 </html>
