@@ -40,7 +40,18 @@
     $google_account_info = $google_oauth->userinfo->get();
     $email =  $google_account_info->email;
     $name =  $google_account_info->name;
-    $_SESSION['user_id'] = $name;
+
+    include "connect.php";
+    $currentDate = date("Y-m-d");
+    $sql = "INSERT INTO `useraccount`(`user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`) VALUES ('$name','$name','$name','0','$currentDate')";
+    $results = $connect->query($sql);
+
+    $user_rows = getuser($name);
+    $user_row = $user_rows->fetch_row();
+    $user_id = $user_row[0];
+    
+    echo "<script>alert('Đăng nhập thành công');</script>";
+    echo "<script>window.location = 'index.php?user_id=$user_id';</script>";
     // now you can use this profile info to create account in your website and make user logged in.
   }
 ?>
