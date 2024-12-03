@@ -279,7 +279,7 @@
   <!-- Footer -->
 
   <!-- Scroll to the top of page -->
-  <button class="scrollup scr_btn">click</button>
+  <button class="scrollup scr_btn"><i class="fa fa-angle-up" style="font-size: 20px;"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

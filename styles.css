@@ -253,13 +253,12 @@ nav a{
   position: fixed;
   bottom: 10px;
   right: 10px;
-  background-color: #e05d73;
+  background-color: #e13a3a;
   color: #fff;
   text-align: center;
-  line-height: 30px;
-  font-size: 12px;
   z-index: 100;
   border-radius: 18px;
+  border: none;
 }
 
 .page_login {
@@ -394,8 +393,6 @@ nav a{
 /* product detail page */
 .product-img {
   width: 100%;
-  max-height: 400px;
-  object-fit: cover;
 }
 
 .block__product-item__outer{
@@ -516,10 +513,11 @@ div#listItemSuperCart{
 
 .search_product {
   position: absolute;
-  top: 160px;
-  width: 300px;
+  top: 70px;
+  width: 30%;
   height: auto;
   display: none;
   border-radius: 10px;
   background-color: #222;
+  z-index: 1000;
 }
