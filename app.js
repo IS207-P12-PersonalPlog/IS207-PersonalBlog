@@ -54,5 +54,33 @@ $(document).ready(function() {
     });
   });
 
+  $(".search-product").keyup(function(){
+    var tensp=$(this).val();
+    $.post("tim_sp.php",
+    {
+      tensp:tensp 
+    },
+    function(data,status){  
+      if(status=="success")
+      {
+        if (data != "0") 
+        {
+          $(".search_product").html(data); 
+          
+          $(".search_product").css({"display": "block"});
+        }
+        else 
+        {
+          $(".search_product").html("<h4>Không tìm thấy sản phẩm</h4>");
+        }
+      }
+    }); 
+  });
+
+  $(".search-product").change(function(){
+    $(".search_product").html(""); 
+    (".search_product").css({"display": "none"});
+  });
+
 });
 

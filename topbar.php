@@ -1,4 +1,5 @@
 <?php session_start();?>
+<script src="app.js"></script>
 <header>
     <div class="top-nav">
       <div class="container">
@@ -225,22 +226,3 @@
       </nav>
     </div>
 </header>
-
-<script>
-  $(document).ready(function(){
-    $(".search-product").change(function(){
-      $(".search_product").css({"display": "block", "background-color": "white"});
-      var tensp=$(this).val();
-      $.post("tim_sp.php",
-      {
-        tensp:tensp 
-      },
-      function(data,status){  
-        if(status=="success")
-        {
-          $(".search_product").html(data); 
-        }
-      }); 
-    });
-  });   
-</script>

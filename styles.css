@@ -197,7 +197,7 @@ nav a{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   width: 95%;
   margin: 10px;
-  height: 100px;
+  height: 120px;
   display: flex;
 }
 
@@ -213,6 +213,10 @@ nav a{
 
 .card_body {
   padding: 15px 20px 20px;
+}
+
+.cardmini_body {
+  padding: 10px 5px 15px;
 }
 
 .card_title {
@@ -239,6 +243,7 @@ nav a{
   font-size: 15px;
   font-weight: 700;
   color: red;
+  padding: 5px 0 0 0;
 }
 
 /* Button scroll to top */
@@ -513,7 +518,8 @@ div#listItemSuperCart{
   position: absolute;
   top: 160px;
   width: 300px;
-  height: 300px;
+  height: auto;
   display: none;
   border-radius: 10px;
+  background-color: #222;
 }
