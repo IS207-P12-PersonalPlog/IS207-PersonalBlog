@@ -1,5 +1,4 @@
 <?php session_start();?>
-<script src="app.js"></script>
 <header>
     <div class="top-nav">
       <div class="container">

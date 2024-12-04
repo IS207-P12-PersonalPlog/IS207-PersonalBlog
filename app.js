@@ -76,7 +76,7 @@ $(document).ready(function() {
     });
   });
 
-  $('.plus').on('click', function(){
+  $(document).on('click','.plus', function(){
     var masp = $(this).val();
     $.ajax({
       method: "POST",
@@ -88,7 +88,6 @@ $(document).ready(function() {
       success: function(response){
         if(response == 200)
         {
-          alert("reload");
           location.reload();
         }
         else{
@@ -127,4 +126,3 @@ $(document).ready(function() {
   });
 
 });
-
