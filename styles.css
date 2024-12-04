@@ -521,3 +521,43 @@ div#listItemSuperCart{
   background-color: #222;
   z-index: 1000;
 }
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.block-box-price{
+  color: #d70018;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.block__product-item__outer .block__product-item .product-info .action input {
+  background-color: transparent;
+  border: 0;
+  font-size: 14px;
+  text-align: center;
+  width: 30px;
+}
+.block__product-item__outer .block__product-item .product-info .action {
+  align-items: center;
+}
+
+.block__product-item__outer .block__product-item .product-info .action input {
+  background-color: transparent;
+  border: 0;
+  font-size: 14px;
+  text-align: center;
+  width: 30px;
+}
+.block__product-item__outer .block__product-item .product-info .action .minus, 
+.block__product-item__outer .block__product-item .product-info .action .plus {
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  height: 30px;
+  user-select: none;
+  width: 30px;
+  border-style: none;
+}

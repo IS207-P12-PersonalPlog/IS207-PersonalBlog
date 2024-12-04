@@ -45,12 +45,56 @@ $(document).ready(function() {
             if(response == 200)
             {
                 // $('#listItemSuperCart').load(location.href + "#listItemSuperCart");
+                alert("reload");
                 location.reload();
             }
             else{
               alert("Some error has happen");
             }
         }
+    });
+  });
+
+  $('.minus').on('click', function(){
+    var masp = $(this).val();
+    $.ajax({
+      method: "POST",
+      url: "functions/handlecart.php",
+      data:{
+        "masp": masp,
+        "scope": "minus-quantity"
+      },
+      success: function(response){
+        if(response == 200)
+        {
+          location.reload();
+        }
+        else{
+          alert("minus error");
+        }
+      }
+    });
+  });
+
+  $('.plus').on('click', function(){
+    var masp = $(this).val();
+    $.ajax({
+      method: "POST",
+      url: "functions/handlecart.php",
+      data:{
+        "masp": masp,
+        "scope": "plus-quantity"
+      },
+      success: function(response){
+        if(response == 200)
+        {
+          alert("reload");
+          location.reload();
+        }
+        else{
+          alert("plus error");
+        }
+      }
     });
   });
 

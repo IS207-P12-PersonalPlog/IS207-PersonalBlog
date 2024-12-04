@@ -82,13 +82,13 @@
                         <button class="removeItem" value="<?php echo $row['MASP']
                         ?>">Xóa</button>
                       </div>
-                      <div>
+                      <div class="d-flex justify-content-between align-items-end">
                         <div class="block-box-price"><?php echo number_format($row['GIA'],0,',','.')."đ"?></div>
                         <?php $tongtien += $row['GIA'] * $sl?>
-                        <div class="action d-flex">
-                          <span class="minus"></span>
+                        <div class="action d-flex testing-class">
+                          <button class="minus d-flex justify-content-center align-items-center" value="<?php echo $id?>">-</button>
                           <input type="text" readonly value="<?php echo $sl?>">
-                          <span class="plus"></span>
+                          <button class="plus d-flex justify-content-center align-items-center" value="<?php echo $id?>">+</button>
                         </div>
                       </div>
                     </div>
