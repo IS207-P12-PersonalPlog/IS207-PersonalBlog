@@ -28,10 +28,6 @@ $(document).ready(function() {
       return false;
   });
 
-  $('#addToCartBtn').click(function() {
-    alert('Product added to cart!');
-  });
-
   $('.removeItem').on('click', function(){
     var masp = $(this).val();
     $.ajax({
@@ -123,6 +119,14 @@ $(document).ready(function() {
   $(".search-product").change(function(){
     $(".search_product").html(""); 
     (".search_product").css({"display": "none"});
+  });
+
+  $(".purchase").on('click', function(){
+    var tongtien = $('.tong').val();
+    $.post("thanhtoan.php", { tongtien: tongtien }, function(data){
+      alert("Thanh toán thành công");
+      window.location.href = "index.php";
+    });
   });
 
 });
