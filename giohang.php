@@ -104,11 +104,16 @@
               <div class="price-temp">
                 <p>
                   Tạm tính: 
-                  <span><?php echo number_format($tongtien,0,',','.')."đ"?></span>
+                  <span>
+                    <?php 
+                      echo $tong = number_format($tongtien,0,',','.')."đ";
+                      echo "<input type='text' class='tong' readonly value='$tong'>";
+                    ?>
+                  </span>
                 </p>
               </div>
             </div>
-            <button class="btn-action">
+            <button class="btn-action purchase">
               Mua Ngay(<?php 
               if(!isset($_SESSION['giohang'])
               || count($_SESSION['giohang']) == 0) echo 0;

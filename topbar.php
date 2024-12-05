@@ -63,13 +63,22 @@
 
                                 if ($results->num_rows > 0) {
                                     $row = $results->fetch_row();
-                                    $_SESSION['user_id'] = $row[1];
+                                    $_SESSION['user_id'] = $row[0];
                                 }
                             }
 
                             if (isset($_SESSION['user_id'])) {
                                 // Hiển thị thông tin người dùng nếu đã đăng nhập
-                                $username = $_SESSION['user_id'];
+                                $user_id = $_SESSION['user_id'];
+                                include "connect.php";
+                                $sql = "SELECT * FROM `useraccount` WHERE user_id='$user_id'";
+                                $results = $connect->query($sql);
+
+                                if ($results->num_rows > 0) {
+                                    $row = $results->fetch_row();
+                                    $username = $row[1];
+                                }
+
                                 echo "<div class='txt-name'>";
                                 echo "<i class='fa fa-user' style='inline-size: auto; font-size: 20px;'></i>";
                                 echo " $username";
