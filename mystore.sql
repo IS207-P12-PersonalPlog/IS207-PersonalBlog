@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 23, 2024 lúc 02:56 AM
+-- Thời gian đã tạo: Th12 05, 2024 lúc 10:11 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -123,7 +123,7 @@ INSERT INTO `ctsp` (`MASP`, `KichThuoc`, `CongNgheManHinh`, `DoPhanGiai`, `GPU`,
 CREATE TABLE `hoadon` (
   `SOHD` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `NGHD` date NOT NULL,
+  `NGHD` timestamp NOT NULL DEFAULT current_timestamp(),
   `TRIGIA` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -142,21 +142,22 @@ CREATE TABLE `sp` (
   `DUNGLUONG` enum('128GB','32GB','64GB','256GB','None') NOT NULL,
   `DVT` enum('Cai','vnd') NOT NULL,
   `NUOCSX` enum('Vietnam','Japan','America','China','Korean') NOT NULL,
-  `HINHANH` varchar(100) NOT NULL
+  `HINHANH` varchar(100) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `sp`
 --
 
-INSERT INTO `sp` (`MASP`, `category_id`, `brand_id`, `TENSP`, `GIA`, `DUNGLUONG`, `DVT`, `NUOCSX`, `HINHANH`) VALUES
-(1, 'phone', 'apple', 'iPhone 16 Pro Max', 34290000, '128GB', 'vnd', 'China', 'images/iphone-16-pro-max.png'),
-(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', 27990000, '128GB', 'vnd', 'China', 'images/ss-s24-ultra222.png'),
-(3, 'phone', 'apple', 'iPhone 13', 13450000, '128GB', 'Cai', 'China', 'images/iphone-13.png'),
-(4, 'laptop', 'msi', 'Laptop MSI Modern 14 C13M-607VN', 14990000, '128GB', 'vnd', 'China', 'images/laptop-msi-modern14c13m.png'),
-(5, 'laptop', 'msi', 'Laptop MSI Gaming GF63 Thin 11UC-1228VN', 16990000, '128GB', 'vnd', 'China', 'images/laptop-msi-gf63.png'),
-(6, 'laptop', 'msi', 'Laptop MSI Prestige 14 AI Studio C1VEG-056VN', 32990000, '128GB', 'vnd', 'China', 'images/laptop-msi-prestige14.png'),
-(7, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW948', 190000, 'None', 'vnd', 'China', 'images/headphone-havit-tw948.png');
+INSERT INTO `sp` (`MASP`, `category_id`, `brand_id`, `TENSP`, `GIA`, `DUNGLUONG`, `DVT`, `NUOCSX`, `HINHANH`, `status`) VALUES
+(1, 'phone', 'apple', 'iPhone 16 Pro Max', 34290000, '128GB', 'vnd', 'China', 'images/iphone-16-pro-max.png', 1),
+(2, 'phone', 'samsung', 'Samsung Galaxy S24 Ultra', 27990000, '128GB', 'vnd', 'China', 'images/ss-s24-ultra222.png', 1),
+(3, 'phone', 'apple', 'iPhone 13', 13450000, '128GB', 'Cai', 'China', 'images/iphone-13.png', 1),
+(4, 'laptop', 'msi', 'Laptop MSI Modern 14 C13M-607VN', 14990000, '128GB', 'vnd', 'China', 'images/laptop-msi-modern14c13m.png', 1),
+(5, 'laptop', 'msi', 'Laptop MSI Gaming GF63 Thin 11UC-1228VN', 16990000, '128GB', 'vnd', 'China', 'images/laptop-msi-gf63.png', 1),
+(6, 'laptop', 'msi', 'Laptop MSI Prestige 14 AI Studio C1VEG-056VN', 32990000, '128GB', 'vnd', 'China', 'images/laptop-msi-prestige14.png', 1),
+(7, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW948', 190000, 'None', 'vnd', 'China', 'images/headphone-havit-tw948.png', 1);
 
 -- --------------------------------------------------------
 
@@ -170,9 +171,17 @@ CREATE TABLE `useraccount` (
   `user_password` varchar(50) NOT NULL,
   `ho_ten` varchar(50) NOT NULL,
   `sdt` varchar(10) DEFAULT NULL,
-  `ngay_dk` date NOT NULL,
+  `ngay_dk` timestamp NOT NULL DEFAULT current_timestamp(),
   `admin_perr` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `useraccount`
+--
+
+INSERT INTO `useraccount` (`user_id`, `user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`, `admin_perr`) VALUES
+(2, 'dat02', 'dat02', 'leducdat', NULL, '2024-12-03 17:00:00', 1),
+(3, 'dat03', 'dat03', '', '0987654321', '2024-12-05 09:08:12', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -245,7 +254,7 @@ ALTER TABLE `sp`
 -- AUTO_INCREMENT cho bảng `useraccount`
 --
 ALTER TABLE `useraccount`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
