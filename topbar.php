@@ -32,6 +32,14 @@
                 <nav>
                   <ul>
                     <li>
+                      <a href="invoice.php">
+                        <i class="fa fa-receipt"
+                          style="font-size:28px"></i>
+                          <div class="txt-name">Hóa đơn<span class="invoice">
+                            </div>
+                      </a>
+                    </li>
+                    <li>
                       <a href="giohang.php">
                         <i class="fa fa-shopping-cart"
                           style="font-size:28px"></i>
