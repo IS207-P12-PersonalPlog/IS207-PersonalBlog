@@ -136,6 +136,8 @@ $connect->close();
             </tr>
         </table>
     </form>
+
+    <a href="admin.php"><h2>Về trang admin</h2></a>
 </body>
 
 </html>

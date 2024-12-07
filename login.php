@@ -100,6 +100,7 @@
       </form>
     </div>
     <?php
+      session_start();
       function checkuser($user, $pass) {
         include "connect.php";
         $sql = "SELECT * FROM `useraccount` WHERE user_name='$user' AND user_password='$pass'";
@@ -108,7 +109,7 @@
       }
       function getuser($user) {
         include "connect.php";
-        $sql = "SELECT user_id FROM `useraccount` WHERE user_name='$user'";
+        $sql = "SELECT * FROM `useraccount` WHERE user_name='$user'";
         $results = $connect->query($sql);
         return $results;
       }
@@ -122,11 +123,20 @@
         $user_rows = getuser($username);
         $user_row = $user_rows->fetch_row();
         $user_id = $user_row[0];
+        $admin_perr = $user_row[6];
     
         if ($results->num_rows > 0) {
-          echo "<script>alert('Đăng nhập thành công');</script>";
-          echo "<script>window.location = 'index.php?user_id=$user_id';</script>";
-          exit;
+          if ($admin_perr == 1)
+          {
+            $_SESSION['admin'] = 1;
+            echo "<script>alert('Đăng nhập thành công');</script>";
+            echo "<script>window.location = 'functions/admin.php';</script>";
+          }
+          else
+          {
+            echo "<script>alert('Đăng nhập thành công');</script>";
+            echo "<script>window.location = 'index.php?user_id=$user_id';</script>";
+          }
         } else {
             echo "<script>";
             echo "alert('Sai tài khoản hoặc mật khẩu');";

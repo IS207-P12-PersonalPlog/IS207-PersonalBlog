@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssissssi", $productName, $brandId, $categoryId, $price, $storage, $dvt, $madein, $image, $productId);
 
     if ($stmt->execute()) {
-        echo "Cập nhật sản phẩm thành công!";
+        echo "<script>alert('Cập nhật sản phẩm thành công!')</script>";
     } else {
         echo "Lỗi: " . $stmt->error;
     }
@@ -232,3 +232,5 @@ $categories = $connect->query("SELECT category_id, category_title FROM categorie
 <?php
 $connect->close();
 ?>
+
+<a href="admin.php"><h2>Về trang admin</h2></a>

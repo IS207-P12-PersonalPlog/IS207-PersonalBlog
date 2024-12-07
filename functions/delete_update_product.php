@@ -75,3 +75,5 @@ $result = $connect->query($sql);
 <?php
 $connect->close();
 ?>
+
+<a href="admin.php"><h2>Về trang admin</h2></a>

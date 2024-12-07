@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php 
+  session_start();
+  unset($_SESSION['admin']);
+?>
 <header>
     <div class="top-nav">
       <div class="container">
