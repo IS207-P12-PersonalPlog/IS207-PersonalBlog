@@ -107,7 +107,7 @@
                   <span>
                     <?php 
                       echo $tong = number_format($tongtien,0,',','.')."đ";
-                      echo "<input type='text' class='tong' readonly value='$tong'>";
+                      echo "<input type='text' class='tong' hidden value='$tong'>";
                     ?>
                   </span>
                 </p>

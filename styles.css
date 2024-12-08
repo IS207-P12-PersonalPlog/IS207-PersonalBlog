@@ -25,7 +25,7 @@ header{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 4;
 }
 
 .header-top {
@@ -256,7 +256,7 @@ nav a{
   background-color: #e13a3a;
   color: #fff;
   text-align: center;
-  z-index: 100;
+  z-index: 4;
   border-radius: 18px;
   border: none;
 }
@@ -492,7 +492,7 @@ div#listItemSuperCart{
   position: fixed;
   transform: translateX(-50%);
   width: 100%;
-  z-index: 11;
+  z-index: 2;
 }
 
 #stickyBottomBar .price-temp span {
@@ -519,7 +519,7 @@ div#listItemSuperCart{
   display: none;
   border-radius: 10px;
   background-color: #222;
-  z-index: 1000;
+  z-index: 6;
 }
 
 .align-items-end {
@@ -560,4 +560,20 @@ div#listItemSuperCart{
   user-select: none;
   width: 30px;
   border-style: none;
+}
+
+th:first-child, td:first-child {
+  width: 55%; 
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 15%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 15%;
+}
+
+th:last-child, td:last-child {
+  width: 15%;
 }

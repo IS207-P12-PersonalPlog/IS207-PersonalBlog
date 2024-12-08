@@ -116,7 +116,7 @@ $(document).ready(function() {
     }); 
   });
 
-  $(".search-product").change(function(){
+  $("html").click(function(){
     $(".search_product").html(""); 
     (".search_product").css({"display": "none"});
   });
@@ -127,6 +127,15 @@ $(document).ready(function() {
       alert("Thanh toán thành công");
       window.location.href = "index.php";
     });
+  });
+
+  $(".in_hd").on('click', function(){
+    $sohd = $('.ds_hoadon').val();
+    $hd = $('.hoadon' + $sohd).html();
+    var printWindow = window.open(' ');
+    printWindow.document.write('<html><head><title> </title><style>th { text-align: left; }</style></head><body>' + $hd + '</body></html>');
+    printWindow.document.close();
+    printWindow.print();
   });
 
 });

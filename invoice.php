@@ -8,6 +8,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
     <title>Hóa đơn</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="app.js"></script>
 </head>
 
 <body>
@@ -18,6 +24,27 @@
     ?>
     
     <div class="container">
+        <br>
+        <?php
+            include "connect.php"; 
+            if (isset($_SESSION['user_id']))
+            {
+                $user_id = $_SESSION['user_id']; 
+                $sql1 = "SELECT * FROM hoadon
+                        JOIN useraccount ON hoadon.user_id = useraccount.user_id
+                        WHERE useraccount.user_id = $user_id";
+                $result = $connect->query($sql1);
+                echo "<h3>Hóa đơn muốn in</h3>";
+                echo "<select class='form-select ds_hoadon'>";
+                while ($row1 = $result->fetch_row())
+                {
+                    echo "<option value='$row1[0]'>$row1[0]</option>";
+                }
+                echo "</select>";
+                echo "<button class='btn btn-primary in_hd'>In hóa đơn</button>";
+            }
+        ?>
+        <div class="hd"></div>
         <hr>
         <?php
             include "connect.php"; 
@@ -31,8 +58,12 @@
                 while ($row1 = $result->fetch_row())
                 {
                     $sohd1 = $row1[0];
-                    echo "<h3>Số hóa đơn: $sohd1</h3>";
-                    echo "<table border='1' style='width:100%'><tr>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'></div>";
+                    echo "<div class='col-md-8 hoadon$row1[0]'>";
+                    echo "Số hóa đơn: $sohd1<br>";
+                    echo "Khách hàng: $row1[5]<br><br>";
+                    echo "<table style='width:100%'><tr>";
                     echo "<th>Sản phẩm</th>";
                     echo "<th>Số lượng</th>";
                     echo "<th>Đơn giá</th>";
@@ -47,7 +78,7 @@
                     {
                         echo "<tr><td>$row2[10]</td>";
                         echo "<td>$row2[2]</td>";
-                        echo "<td>$row2[11]</td>";
+                        echo "<td>" . number_format($row2[11], 0, '.', '.') . "</td>";
                         $thanhtien = $row2[2] * $row2[11];
                         echo "<td>" . number_format($thanhtien, 0, '.', '.') . "</td></tr>";
                     }
@@ -55,7 +86,8 @@
                     echo "<td colspan='3'><b>Tổng cộng: </b></td>";
                     echo "<td>$row1[3]</td>";
                     echo "</tr></table>";
-                    echo "<br><hr>";
+                    echo "<br><hr></div>";
+                    echo "<div class='col-md-2'></div></div>";
                 }
             }
             else
@@ -192,8 +224,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Main script file -->
-    <script src="app.js"></script>
 </body>
 
 </html>

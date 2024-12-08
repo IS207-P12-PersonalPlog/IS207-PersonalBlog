@@ -69,7 +69,7 @@ $connect->close();
                 <h2><?php echo htmlspecialchars($product['TENSP']); ?></h2>
                 <h5>Brand: <?php echo htmlspecialchars($product['brand_title']); ?></h5>
                 <h5>Category: <?php echo htmlspecialchars($product['category_title']); ?></h5>
-                <h4 class="text-danger">Price: <?php echo number_format($product['GIA'], 0); ?> VND</h4>
+                <h4 class="text-danger">Price: <?php echo number_format($product['GIA'], 0, '.', '.'); ?> VND</h4>
                 <p>Storage: <?php echo htmlspecialchars($product['DUNGLUONG']); ?></p>
 
                 <!-- Quantity Selector -->
