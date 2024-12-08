@@ -48,7 +48,7 @@ $result = $connect->query($sql);
                 <td><?php echo htmlspecialchars($row['TENSP']); ?></td>
                 <td>
                     <form method="POST"
-                        action="delete_product.php"
+                        action="delete_update_product.php"
                         style="display:inline;">
                         <input type="hidden"
                             name="product_id"
@@ -76,4 +76,6 @@ $result = $connect->query($sql);
 $connect->close();
 ?>
 
-<a href="admin.php"><h2>Về trang admin</h2></a>
+<a href="admin.php">
+    <h2>Về trang admin</h2>
+</a>
