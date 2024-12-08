@@ -71,7 +71,7 @@
 
         <div class="remember_forgot">
             <label for=""><input type="checkbox">Remember me</label>
-            <a href="">Forgot password</a>
+            <a href="forgot_pw.php">Forgot password</a>
         </div>
 
         <input type="submit" class="btn_login" name="login" value="Login">
@@ -87,12 +87,6 @@
                     <?php 
                       echo "<a href='".$client->createAuthUrl()."'><i class='fa fa-google'></i> Sign in with Google</a>";
                     ?>
-                </div>
-                <div class="social-field facebook">
-                    <a href="#">
-                        <i class="fa fa-facebook-f"></i>
-                        Sign in with Facebook
-                    </a>
                 </div>
             </div>
         </div>
