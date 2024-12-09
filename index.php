@@ -127,7 +127,7 @@
 
         <!-- Filter các loại điện thoại -->
         <div class="container">
-            <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+            <h2>Danh mục sản phẩm</h2>
             <div class="filter-button-group button-group">
                 <button data-filter="*"
                     class="btn btn-outline-secondary">All</button>
@@ -144,7 +144,32 @@
                 id="phone_list">
             <?php
             include "connect.php";
-            $sql = "SELECT * FROM `sp`";
+            // Số sản phẩm trên mỗi trang
+            $products_per_page = 9;
+
+            // Trang hiện tại
+            if (isset($_GET['page']))
+            {
+                $current_page = $_GET['page'];
+            }
+            else
+            {
+                $current_page = 1;
+            }
+
+            // Tính offset
+            $offset = ($current_page - 1) * $products_per_page;
+
+            // Truy vấn để lấy số sản phẩm
+            $total_products_query = "SELECT COUNT(*) as total FROM `sp`";
+            $total_products_result = $connect->query($total_products_query);
+            $total_products = $total_products_result->fetch_assoc()['total'];
+
+            // Tính số trang cần thiết
+            $total_pages = ceil($total_products / $products_per_page);
+
+            // Truy vấn để lấy sản phẩm trên trang hiện tại
+            $sql = "SELECT * FROM `sp` LIMIT $offset, $products_per_page";
             $results = $connect->query($sql);
             while($rows = $results->fetch_assoc()){
                 echo '<a href="product_detail.php?masp=' . $rows['MASP'] . '" class="card ' . $rows['category_id'] . '" type="' . $rows['MASP'] . '">';
@@ -159,7 +184,46 @@
             }
             $connect->close();
             ?>
-            </div>
+        </div>
+        <?php
+            echo '<ul class="pagination">';
+
+            if ($current_page > 1) {
+                echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page - 1) . '">Previous</a></li>';
+            }
+
+            $num_links = 5; // Số lượng liên kết phân trang tối đa hiển thị
+            $start = max(1, $current_page - floor($num_links / 2));
+            $end = min($total_pages, $start + $num_links - 1);
+
+            if ($start > 1) {
+                echo '<li class="page-item"><a class="page-link" href="?page=1">1</a></li>';
+            }
+            if ($start > 2) {
+                echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+            }
+
+            for ($i = $start; $i <= $end; $i++) {
+                if ($i == $current_page) {
+                    echo '<li class="page-item active"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+                } else {
+                    echo '<li class="page-item"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+                }
+            }
+
+            if ($end < $total_pages - 1) {
+                echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+            }
+            if ($end < $total_pages) {
+                echo '<li class="page-item"><a class="page-link" href="?page=' . $total_pages . '">' . $total_pages . '</a></li>';
+            }
+
+            if ($current_page < $total_pages) {
+                echo '<li class="page-item"><a class="page-link" href="?page=' . ($current_page + 1) . '">Next</a></li>';
+            }
+
+            echo '</ul>';
+        ?>
     </main>
 
     <!-- Footer -->
