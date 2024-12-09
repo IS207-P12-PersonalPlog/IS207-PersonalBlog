@@ -1,30 +1,23 @@
 <?php
 include "connect.php";
 
-// Lấy mã sản phẩm từ index.php
-$product_id = isset($_GET['masp']) ? intval($_GET['masp']) : 0;
 
-// Thực thi truy vấn
-$sql = "SELECT sp.MASP, sp.TENSP, sp.GIA, sp.DUNGLUONG, sp.HINHANH, sp.status,
-            categories.category_title, brands.brand_title
-    FROM sp
-    JOIN categories ON sp.category_id = categories.category_id
-    JOIN brands ON sp.brand_id = brands.brand_id
-    WHERE sp.MASP = ?";
+// Nạp thông tin từ sp 
+$product_id = $_GET['masp'];
+$sql = "SELECT * FROM sp WHERE MASP = ?";
 $stmt = $connect->prepare($sql);
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-$product = $result->fetch_assoc();
-} else {
-die("Không tìm thấy sản phẩm.");
-}
-
-// Đóng kết nối
+$product = $stmt->get_result()->fetch_assoc();
 $stmt->close();
-$connect->close();
+
+// Nạp thông tin chi tiết từ ctsp
+$sql = "SELECT * FROM ctsp WHERE MASP = ?";
+$stmt = $connect->prepare($sql);
+$stmt->bind_param("i", $product_id);
+$stmt->execute();
+$product_details = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +43,10 @@ $connect->close();
 
 <body>
     <!-- HEADER -->
-    <?php
-    include "header.php";
-    include "topbar.php";
-    ?>
+<?php
+include "header.php";
+include "topbar.php";
+?>
 
     <!-- PRODUCT MAIN SECTION -->
     <div class="container mt-5">
@@ -67,10 +60,8 @@ $connect->close();
             <!-- Product Details Section -->
             <div class="col-md-6">
                 <h2><?php echo htmlspecialchars($product['TENSP']); ?></h2>
-                <h5>Brand: <?php echo htmlspecialchars($product['brand_title']); ?></h5>
-                <h5>Category: <?php echo htmlspecialchars($product['category_title']); ?></h5>
-                <h4 class="text-danger">Price: <?php echo number_format($product['GIA'], 0, '.', '.'); ?> VND</h4>
-                <p>Storage: <?php echo htmlspecialchars($product['DUNGLUONG']); ?></p>
+                <h5>Thương hiệu: <?php echo htmlspecialchars($product['brand_id']); ?></h5>
+                <h4 class="text-danger"><?php echo number_format($product['GIA'], 0, '.', '.'); ?> VNĐ</h4>
 
             <!-- NẾU TRẠNG THÁI SẢN PHẨM LÀ 1 -->
                 <?php if ($product['status'] == 1): ?>
@@ -90,6 +81,69 @@ $connect->close();
                 <?php else: ?>
                     <p class="text-danger">Sản phẩm ngừng kinh doanh</p>
                 <?php endif;?>
+            </div>
+        </div>
+    </div>
+
+    <!-- THÔNG TIN CHI TIẾT SẢN PHẨM -->
+     <div class="row mt-5">
+            <!-- Thông số kỹ thuật -->
+            <div class="col-md-12">
+                <h3>Thông tin chi tiết sản phẩm</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Kích Thước</th>
+                        <td><?php echo htmlspecialchars($product_details['KichThuoc']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Công Nghệ Màn Hình</th>
+                        <td><?php echo htmlspecialchars($product_details['CongNgheManHinh']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Độ Phân Giải</th>
+                        <td><?php echo htmlspecialchars($product_details['DoPhanGiai']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>GPU</th>
+                        <td><?php echo htmlspecialchars($product_details['GPU']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>RAM</th>
+                        <td><?php echo htmlspecialchars($product_details['RAM']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Bộ Nhớ Trong</th>
+                        <td><?php echo htmlspecialchars($product_details['BoNhoTrong']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Pin</th>
+                        <td><?php echo htmlspecialchars($product_details['Pin']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>OS</th>
+                        <td><?php echo htmlspecialchars($product_details['OS']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>CPU</th>
+                        <td><?php echo htmlspecialchars($product_details['CPU']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Trọng Lượng</th>
+                        <td><?php echo htmlspecialchars($product_details['TrongLuong']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Chất Liệu</th>
+                        <td><?php echo htmlspecialchars($product_details['ChatLieu']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Thời Điểm Ra Mắt</th>
+                        <td><?php echo htmlspecialchars($product_details['TDRaMat']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Mô Tả</th>
+                        <td><?php echo htmlspecialchars($product_details['MoTa']); ?></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
