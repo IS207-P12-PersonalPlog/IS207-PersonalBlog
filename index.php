@@ -142,23 +142,23 @@
             <!-- Card -->
             <div class="filterable_card"
                 id="phone_list">
-                <?php
-          include "connect.php";
-          $sql = "SELECT * FROM `sp`";
-          $results = $connect->query($sql);
-          while($rows = $results->fetch_assoc()){
-            echo '<a href="product_detail.php?masp=' . $rows['MASP'] . '" class="card ' . $rows['category_id'] . '" type="' . $rows['MASP'] . '">';
-            echo '<div>';
-            echo '<img src="' . $rows['HINHANH'] . '" alt="">';
-            echo '<div class="card_body">';
-            echo '<h6 class="card_title">' . $rows['TENSP'] . '</h6>';
-            echo '<h5 class="card_value">' . number_format($rows['GIA'], 0, ',', '.') . '</h5>';
-            echo '</div>';
-            echo '</div>';
-            echo '</a>';
-          }
-          $connect->close();
-        ?>
+            <?php
+            include "connect.php";
+            $sql = "SELECT * FROM `sp`";
+            $results = $connect->query($sql);
+            while($rows = $results->fetch_assoc()){
+                echo '<a href="product_detail.php?masp=' . $rows['MASP'] . '" class="card ' . $rows['category_id'] . '" type="' . $rows['MASP'] . '">';
+                echo '<div>';
+                echo '<img src="' . $rows['HINHANH'] . '" alt="">';
+                echo '<div class="card_body">';
+                echo '<h6 class="card_title">' . $rows['TENSP'] . '</h6>';
+                echo '<h5 class="card_value">' . number_format($rows['GIA'], 0, ',', '.') . '</h5>';
+                echo '</div>';
+                echo '</div>';
+                echo '</a>';
+            }
+            $connect->close();
+            ?>
             </div>
     </main>
 

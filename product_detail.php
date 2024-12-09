@@ -4,25 +4,25 @@ include "connect.php";
 // Lấy mã sản phẩm từ index.php
 $product_id = isset($_GET['masp']) ? intval($_GET['masp']) : 0;
 
-// thực thi truy vấn
-$sql = "SELECT sp.MASP, sp.TENSP, sp.GIA, sp.DUNGLUONG, sp.HINHANH,
-               categories.category_title, brands.brand_title
-        FROM sp
-        JOIN categories ON sp.category_id = categories.category_id
-        JOIN brands ON sp.brand_id = brands.brand_id
-        WHERE sp.MASP = ?";
+// Thực thi truy vấn
+$sql = "SELECT sp.MASP, sp.TENSP, sp.GIA, sp.DUNGLUONG, sp.HINHANH, sp.status,
+            categories.category_title, brands.brand_title
+    FROM sp
+    JOIN categories ON sp.category_id = categories.category_id
+    JOIN brands ON sp.brand_id = brands.brand_id
+    WHERE sp.MASP = ?";
 $stmt = $connect->prepare($sql);
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    $product = $result->fetch_assoc();
+$product = $result->fetch_assoc();
 } else {
-    die("Không tìm thấy sản phẩm.");
+die("Không tìm thấy sản phẩm.");
 }
 
-// đóng kết nối
+// Đóng kết nối
 $stmt->close();
 $connect->close();
 ?>
@@ -37,6 +37,7 @@ $connect->close();
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($product['TENSP']); ?></title>
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet">
@@ -44,15 +45,14 @@ $connect->close();
     <link href="styles.css"
         rel="stylesheet">
     <script src="jquery.js"></script>
-    <!-- script nhan nut them san pham -->
 
 </head>
 
 <body>
     <!-- HEADER -->
     <?php
-      include "header.php";
-      include "topbar.php";
+    include "header.php";
+    include "topbar.php";
     ?>
 
     <!-- PRODUCT MAIN SECTION -->
@@ -72,6 +72,8 @@ $connect->close();
                 <h4 class="text-danger">Price: <?php echo number_format($product['GIA'], 0, '.', '.'); ?> VND</h4>
                 <p>Storage: <?php echo htmlspecialchars($product['DUNGLUONG']); ?></p>
 
+            <!-- NẾU TRẠNG THÁI SẢN PHẨM LÀ 1 -->
+                <?php if ($product['status'] == 1): ?>
                 <!-- Quantity Selector -->
                 <div class="mb-3">
                     <label for="quantity"
@@ -82,15 +84,12 @@ $connect->close();
                         value="1"
                         min="1">
                 </div>
-
                 <!-- Add to Cart Button -->
                 <button class="btn btn-primary addToCartBtn">Add to Cart</button>
-
-                <!-- Static Reviews Section -->
-                <div class="mt-5">
-                    <h5>Customer Reviews</h5>
-                    <p>No reviews yet. Be the first to review this product!</p>
-                </div>
+            <!-- NẾU SẢN PHẨM ĐANG BỊ TẮT -->
+                <?php else: ?>
+                    <p class="text-danger">Sản phẩm ngừng kinh doanh</p>
+                <?php endif;?>
             </div>
         </div>
     </div>
