@@ -11,11 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dvt = $_POST['dvt'];
     $madein = $_POST['nuocsx'];
     $image = $_POST['image'];
+    $status = 1;
 
-    $sql = "INSERT INTO sp (TENSP, brand_id, category_id, GIA, DUNGLUONG, DVT, NUOCSX, HINHANH)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO sp (TENSP, brand_id, category_id, GIA, DUNGLUONG, DVT, NUOCSX, HINHANH, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $connect->prepare($sql);
-    $stmt->bind_param("sssissss", $productName, $brandId, $categoryId, $price, $storage, $dvt, $madein, $image);
+    $stmt->bind_param("sssissssi", $productName, $brandId, $categoryId, $price, $storage, $dvt, $madein, $image, $status);
 
     if ($stmt->execute()) {
         echo "Thêm sản phẩm thành công!";
@@ -137,7 +138,9 @@ $connect->close();
         </table>
     </form>
 
-    <a href="admin.php"><h2>Về trang admin</h2></a>
+    <a href="admin.php">
+        <h2>Về trang admin</h2>
+    </a>
 </body>
 
 </html>

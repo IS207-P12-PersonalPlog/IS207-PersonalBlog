@@ -1,5 +1,5 @@
 <?php
-// delete_product.php
+// delete_product_turnoff.php
 include '../connect.php'; // kết nối database
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Nạp sản phẩm
-$sql = "SELECT MASP, TENSP FROM sp";
+$sql = "SELECT MASP, TENSP, status FROM sp";
 $result = $connect->query($sql);
 ?>
 
@@ -32,12 +32,13 @@ $result = $connect->query($sql);
 </head>
 
 <body>
-    <h2>Xóa sản phẩm</h2>
+    <h2>Xóa-sửa-tắt sản phẩm</h2>
     <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Tên sản phẩm</th>
+                <th>Trạng thái</th>
                 <th>Chức năng</th>
             </tr>
         </thead>
@@ -46,9 +47,10 @@ $result = $connect->query($sql);
             <tr>
                 <td><?php echo htmlspecialchars($row['MASP']); ?></td>
                 <td><?php echo htmlspecialchars($row['TENSP']); ?></td>
+                <td><?php echo htmlspecialchars($row['status'] == 1 ? 'Active' : 'Inactive'); ?></td>
                 <td>
                     <form method="POST"
-                        action="delete_update_product.php"
+                        action="delete_update_toggle_product.php"
                         style="display:inline;">
                         <input type="hidden"
                             name="product_id"
@@ -62,6 +64,14 @@ $result = $connect->query($sql);
                             name="product_id"
                             value="<?php echo $row['MASP']; ?>">
                         <button type="submit">Sửa</button>
+                    </form>
+                    <form method="POST"
+                        action="toggle_status.php"
+                        style="display:inline;">
+                        <input type="hidden"
+                            name="product_id"
+                            value="<?php echo $row['MASP']; ?>">
+                        <button type="submit"><?php echo $row['status'] == 1 ? 'Tắt' : 'Bật'; ?></button>
                     </form>
                 </td>
             </tr>
