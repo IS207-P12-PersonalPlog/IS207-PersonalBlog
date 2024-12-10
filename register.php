@@ -48,6 +48,13 @@
       function register($user, $pass, $name, $sdt) {
         include "connect.php";
         $currentDate = date("Y-m-d");
+        $sql1 = "SELECT * FROM `useraccount` WHERE user_name='$user'";
+        $result = $connect->query($sql1);
+        $row = $result->fetch_row();
+        if ($row[1] == $user)
+        {
+          return 0;
+        }
         $sql = "INSERT INTO `useraccount`(`user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`) VALUES ('$user','$pass','$name','$sdt','$currentDate')";
         $results = $connect->query($sql);
         return $results;
@@ -76,7 +83,7 @@
                 exit;
             } else {
                 echo "<script>";
-                echo "alert('Đăng ký không thành công');";
+                echo "alert('Đăng ký không thành công do trùng username');";
                 echo "</script>";
             }
         }

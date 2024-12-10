@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $connect->close();
 
     // trở về trang xóa, sửa, tắt
-    header("Location: delete_update_product.php");
+    header("Location: delete_update_toggle_product.php");
     exit();
 }
 ?>
