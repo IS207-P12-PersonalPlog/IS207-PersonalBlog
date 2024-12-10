@@ -67,7 +67,14 @@
         $ho_ten = $_POST['ho_ten'];
         $sdt = $_POST['sdt'];
 
-        if ($password != $comfirm_password)
+        if (strlen($sdt) != 10)
+        {
+          echo "<script>";
+          echo "alert('Sai số điện thoại');";
+          echo "</script>";
+        }
+
+        elseif ($password != $comfirm_password)
         {
             echo "<script>";
             echo "alert('Mật khẩu không trùng nhau');";
