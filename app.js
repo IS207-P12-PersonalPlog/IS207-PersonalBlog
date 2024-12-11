@@ -95,6 +95,7 @@ $(document).ready(function() {
 
   $(".search-product").keyup(function(){
     var tensp=$(this).val();
+    if(tensp.length < 3) return;
     $.post("tim_sp.php",
     {
       tensp:tensp 

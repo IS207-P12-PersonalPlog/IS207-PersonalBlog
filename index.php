@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <script src="jquery.js"></script>
-    <script src="custom.js"></script>
     <meta content="width=device-width, initial-scale=1.0"
         name="viewport">
     <title>IS207-PersonalBlog</title>
@@ -177,7 +176,7 @@
                 echo '<img src="' . $rows['HINHANH'] . '" alt="">';
                 echo '<div class="card_body">';
                 echo '<h6 class="card_title">' . $rows['TENSP'] . '</h6>';
-                echo '<h5 class="card_value">' . number_format($rows['GIA'], 0, ',', '.') . '</h5>';
+                echo '<h5 class="card_value">' . number_format($rows['GIA'], 0, ',', '.') . 'đ</h5>';
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';

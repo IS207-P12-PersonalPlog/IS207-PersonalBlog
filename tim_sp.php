@@ -1,7 +1,7 @@
 <?php
     include "connect.php";
     $tensp = $_POST['tensp'];
-    $sql = "SELECT * FROM `sp` WHERE TENSP LIKE '{$tensp}%' LIMIT 2";
+    $sql = "SELECT * FROM `sp` WHERE lower(TENSP) LIKE lower('%{$tensp}%') LIMIT 2";
     $results = $connect->query($sql);
     if ($results->num_rows > 0) 
     {

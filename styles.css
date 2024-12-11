@@ -1,6 +1,10 @@
 * {
   scrollbar-color: #bdb7af #f1efeb;
   box-sizing: border-box;
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
 }
 
 li {
