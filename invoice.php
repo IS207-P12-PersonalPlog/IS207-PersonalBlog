@@ -34,14 +34,34 @@
                         JOIN useraccount ON hoadon.user_id = useraccount.user_id
                         WHERE useraccount.user_id = $user_id";
                 $result = $connect->query($sql1);
-                echo "<h3>Hóa đơn muốn in</h3>";
-                echo "<select class='form-select ds_hoadon'>";
-                while ($row1 = $result->fetch_row())
+                $temp = $result->fetch_row();
+                if ($temp)
                 {
-                    echo "<option value='$row1[0]'>$row1[0]</option>";
+                    echo "<h3>Hóa đơn muốn in</h3>";
+                    echo "<select class='form-select ds_hoadon'>";
+                    echo "<option value='$temp[0]'>$temp[0]</option>";
+                    while ($row = $result->fetch_row())
+                    {
+                        echo "<option value='$row[0]'>$row[0]</option>";
+                    }
+                    echo "</select>";
+                    echo "<button class='btn btn-primary in_hd'>In hóa đơn</button>";
                 }
-                echo "</select>";
-                echo "<button class='btn btn-primary in_hd'>In hóa đơn</button>";
+                else
+                {
+        ?>
+                    <div class="container block-info mt-3">
+                        <div class="nothing-in-cart">
+                        <img src="https://cdn2.cellphones.com.vn/x,webp/media/cart/Cart-empty-v2.png" alt="Hóa đơn rỗng">
+                        <span class="my-3">
+                            Hóa đơn của bạn đang trống. 
+                            <br>
+                            Hãy chọn thêm sản phẩm để mua sắm nhé
+                        </span>
+                        </div>
+                    </div>
+        <?php
+                }
             }
         ?>
         <div class="hd"></div>
@@ -84,7 +104,7 @@
                     }
                     echo "<tr>";
                     echo "<td colspan='3'><b>Tổng cộng: </b></td>";
-                    echo "<td>$row1[3]</td>";
+                    echo "<td>" . number_format($row1[3], 0, '.', '.') . "</td>";
                     echo "</tr></table>";
                     echo "<br><hr></div>";
                     echo "<div class='col-md-2'></div></div>";

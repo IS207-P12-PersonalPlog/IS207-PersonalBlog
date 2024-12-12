@@ -36,7 +36,7 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo";
 $amount = $_GET['tongtien'];
 $orderId = time() . "";
-$redirectUrl = "http://localhost:8080/IS207-PersonalBlog/thanhtoan.php?tongtien=" . "$amount";
+$redirectUrl = "http://localhost:8080/IS207-PersonalBlog/index.php";
 $ipnUrl = "http://localhost:8080/IS207-PersonalBlog/thanhtoan.php?tongtien=" . "$amount";
 $extraData = "";
 
