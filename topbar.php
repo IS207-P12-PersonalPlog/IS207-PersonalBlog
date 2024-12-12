@@ -1,6 +1,5 @@
 <?php 
   session_start();
-  unset($_SESSION['admin']);
 ?>
 <header>
     <div class="top-nav">
@@ -31,12 +30,18 @@
               <div class="header-top-right flexbox flex-align-item flex-justify-content-end">
                 <nav>
                   <ul>
+                    <?php 
+                      if (isset($_SESSION['admin']))
+                      {
+                        echo "<li><a href='functions/admin.php'>Admin</a></li>";
+                      }
+                    ?>
+                    
                     <li>
                       <a href="invoice.php">
                         <i class="fa fa-receipt"
                           style="font-size:28px"></i>
-                          <div class="txt-name">Hóa đơn<span class="invoice">
-                            </div>
+                          <div class="txt-name">Hóa đơn</div>
                       </a>
                     </li>
                     <li>

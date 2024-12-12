@@ -124,7 +124,7 @@
           {
             $_SESSION['admin'] = 1;
             echo "<script>alert('Đăng nhập thành công');</script>";
-            echo "<script>window.location = 'functions/admin.php';</script>";
+            echo "<script>window.location = 'index.php?user_id=$user_id';</script>";
           }
           else
           {

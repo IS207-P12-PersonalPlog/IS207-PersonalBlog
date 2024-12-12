@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin']))
+{
+    echo "<script>alert('Bạn không có quyền truy cập')</script>";
+    echo "<script>window.location = '../index.php';</script>";
+}
 // update_product.php
 include '../connect.php'; // Include your database connection file
 

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin']))
+{
+    echo "<script>alert('Bạn không có quyền truy cập')</script>";
+    echo "<script>window.location = '../index.php';</script>";
+}
 include '../connect.php'; // kết nối database
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
