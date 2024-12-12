@@ -1,7 +1,7 @@
 <?php
   include "connect.php";
   session_start();
-  $tongtien = $_POST['tongtien'];
+  $tongtien = $_GET['tongtien'];
   $user_id = $_SESSION['user_id'];
   $giohang = $_SESSION['giohang'];
   $currentDate = date("Y-m-d");
@@ -16,4 +16,7 @@
   }
   unset( $_SESSION['giohang']);
   $connect->close();
+  echo "<script>alert('Thanh toán thành công')</script>";
+  header("location: index.php");
 ?>
+

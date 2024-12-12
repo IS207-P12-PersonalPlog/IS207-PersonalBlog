@@ -95,7 +95,7 @@ $(document).ready(function() {
 
   $(".search-product").keyup(function(){
     var tensp=$(this).val();
-    if(tensp.length < 3) return;
+    
     $.post("tim_sp.php",
     {
       tensp:tensp 
@@ -123,11 +123,12 @@ $(document).ready(function() {
   });
 
   $(".purchase").on('click', function(){
-    var tongtien = $('.tong').val();
-    $.post("thanhtoan.php", { tongtien: tongtien }, function(data){
-      alert("Thanh toán thành công");
-      window.location.href = "index.php";
-    });
+    $tongtien = $('.tong').val();
+    window.location.href = "thanhtoan_momo.php?tongtien=" + $tongtien;
+    //$.post("thanhtoan.php", { tongtien: tongtien }, function(data){
+      //alert("Thanh toán thành công");
+      //window.location.href = "index.php";
+    //});
   });
 
   $(".in_hd").on('click', function(){
