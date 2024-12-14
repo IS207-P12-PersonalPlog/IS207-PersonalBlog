@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 07, 2024 lúc 12:24 PM
+-- Thời gian đã tạo: Th12 14, 2024 lúc 03:37 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -69,7 +69,8 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`category_id`, `category_title`) VALUES
 ('headphone', 'Headphone'),
 ('laptop', 'Laptop'),
-('phone', 'Phone');
+('phone', 'Phone'),
+('tivi', 'Tivi');
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,16 @@ CREATE TABLE `cthd` (
   `MASP` int(11) NOT NULL,
   `SL` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cthd`
+--
+
+INSERT INTO `cthd` (`SOHD`, `MASP`, `SL`) VALUES
+(1, 1, 2),
+(2, 5, 1),
+(3, 8, 1),
+(3, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -126,6 +137,15 @@ CREATE TABLE `hoadon` (
   `NGHD` timestamp NOT NULL DEFAULT current_timestamp(),
   `TRIGIA` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`SOHD`, `user_id`, `NGHD`, `TRIGIA`) VALUES
+(1, 3, '2024-12-10 17:00:00', '68.580.000đ'),
+(2, 3, '2024-12-10 17:00:00', '16.990.000đ'),
+(3, 3, '2024-12-10 17:00:00', '11.080.000đ');
 
 -- --------------------------------------------------------
 
@@ -283,7 +303,68 @@ INSERT INTO `sp` (`MASP`, `category_id`, `brand_id`, `TENSP`, `GIA`, `DUNGLUONG`
 (130, 'headphone', 'sony', 'Tai nghe Gaming chụp tai Sony Inzone H9', 5850000, '128GB', 'Cai', 'China', 'images/tai-nghe-chup-tai-gaming-sony-inzone-h9.png', 1),
 (131, 'headphone', 'sony', 'Tai nghe chụp tai Gaming Sony Inzone H3', 2290000, '128GB', 'Cai', 'China', 'images/tai-nghe-chup-tai-gaming-sony-inzone-h3.png', 1),
 (132, 'headphone', 'sony', 'Tai nghe chụp tai Sony MDR-ZX110AP', 590000, '128GB', 'Cai', 'China', 'images/sony-mdr-zx110ap.png', 1),
-(133, 'headphone', 'sony', 'Tai nghe Gaming chụp tai không dây Sony INZONE H5', 3790000, '128GB', 'Cai', 'China', 'images/tai-nghe-chup-tai-sony-inzone-h5.png', 1);
+(133, 'headphone', 'sony', 'Tai nghe Gaming chụp tai không dây Sony INZONE H5', 3790000, '128GB', 'Cai', 'China', 'images/tai-nghe-chup-tai-sony-inzone-h5.png', 1),
+(134, 'headphone', 'sony', 'Tai nghe Gaming chụp tai không dây Sony INZONE H5', 3790000, '128GB', 'Cai', 'China', 'images/tai-nghe-chup-tai-sony-inzone-h5.png', 1),
+(135, 'headphone', 'apple', 'Tai nghe Bluetooth Apple AirPods 4', 3350000, 'None', 'Cai', 'China', 'images/apple-airpods-4.png', 1),
+(136, 'headphone', 'apple', 'Tai nghe Bluetooth Apple AirPods Pro 2 2023 USB-C', 5690000, 'None', 'Cai', 'China', 'images/apple-airpods-pro-2-usb-c_1_.png', 1),
+(137, 'headphone', 'apple', 'Tai nghe Bluetooth Apple AirPods 2', 2990000, 'None', 'Cai', 'China', 'images/apple-airpods-2.png', 1),
+(138, 'headphone', 'apple', 'Tai nghe Bluetooth Apple AirPods 3 2022', 3590000, 'None', 'Cai', 'China', 'images/apple-airpods-3-2022.png', 1),
+(139, 'headphone', 'apple', 'Tai nghe Bluetooth Apple AirPods 3 MagSafe', 3890000, 'None', 'Cai', 'China', 'images/apple-airpods-3.png', 1),
+(140, 'headphone', 'apple', 'Tai nghe chụp tai chống ồn Apple AirPods Max 2024', 12990000, 'None', 'Cai', 'China', 'images/apple-airpods-max-1_1.png', 1),
+(141, 'headphone', 'apple', 'TAI NGHE APPLE EARPODS CỔNG LIGHTNING', 500000, 'None', 'Cai', 'China', 'images/apple-airpods-lightning.png', 1),
+(142, 'headphone', 'apple', 'Tai nghe chụp tai chống ồn Apple AirPods Max', 11990000, 'None', 'Cai', 'China', 'images/apple-airpods-max-2021.png', 1),
+(143, 'headphone', 'apple', 'Tai nghe Apple EarPods USB-C', 550000, 'None', 'Cai', 'China', 'images/tai-nghe-apple-earpods-usb-c_1_.png', 1),
+(144, 'headphone', 'samsung', 'Tai nghe Bluetooth True Wireless Samsung Galaxy Buds2 Pro', 2590000, 'None', 'Cai', 'China', 'images/samsung-galaxy-buds-2-pro.png', 1),
+(145, 'headphone', 'samsung', 'Tai nghe Bluetooth True Wireless Samsung Galaxy Buds 3 Pro', 5090000, 'None', 'Cai', 'China', 'images/tai-nghe-samsung-galaxy-buds-3-pro.png', 1),
+(146, 'headphone', 'samsung', 'Tai nghe Bluetooth True Wireless Samsung Galaxy Buds FE', 1390000, 'None', 'Cai', 'China', 'images/samsung-galaxy-buds-fe.png', 1),
+(147, 'headphone', 'samsung', 'Tai nghe Bluetooth True Wireless Samsung Galaxy Buds 3', 3590000, 'None', 'Cai', 'China', 'images/samsung-galaxy-buds-3.png', 1),
+(148, 'headphone', 'samsung', 'Tai nghe Bluetooth True Wireless Samsung Galaxy Buds2 Pro', 2590000, 'None', 'Cai', 'China', 'images/samsung-galaxy-buds-2-pro-da-kich-hoat.png', 1),
+(149, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Xiaomi Redmi Buds 6 Active', 490000, 'None', 'Cai', 'China', 'images/tai-nghe-bluetooth-xiaomi-redmi-buds-6-active-spa.png', 1),
+(150, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Redmi Buds 4 Lite', 390000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-xiaomi-redmi-buds-4-lite.png', 1),
+(151, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Xiaomi Redmi Buds 5', 990000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-xiaomi-redmi-buds-5.png', 1),
+(152, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Xiaomi Redmi Buds 5 Pro', 1790000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-xiaomi-redmi-buds-5-pro.png', 1),
+(153, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Xiaomi Buds 5', 2190000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-xiaomi-buds-5.png', 1),
+(154, 'headphone', 'xiaomi', 'Tai nghe Xiaomi Mi Basic Chính hãng', 140000, 'None', 'Cai', 'China', 'images/tai-nghe-xiaomi-mi-basic-chinh-hang.png', 1),
+(155, 'headphone', 'xiaomi', 'Tai nghe có dây Xiaomi Type-C', 169000, 'None', 'Cai', 'China', 'images/tai-nghe-co-day-xiaomi-type-c.png', 1),
+(156, 'headphone', 'xiaomi', 'Tai nghe thể thao Xiaomi Openwear Stereo', 2590000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-xiaomi-openwear-stereo.png', 1),
+(157, 'headphone', 'xiaomi', 'Tai nghe Bluetooth True Wireless Xiaomi Buds 3T Pro', 1690000, 'None', 'Cai', 'China', 'images/buds_3t_pro_2.png', 1),
+(158, 'headphone', 'asus', 'Tai nghe Bluetooth True Wireless Gaming ROG Cetra', 1590000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-rog-cetra.png', 1),
+(159, 'headphone', 'asus', 'Tai nghe có dây Gaming ASUS ROG Cetra II Core', 840000, 'None', 'Cai', 'China', 'images/tai-nghe-rog-cetra-ii-core.png', 1),
+(160, 'headphone', 'asus', 'Tai nghe chụp tai Gaming Asus TUF H1', 740000, 'None', 'Cai', 'China', 'images/tai-nghe-chup-tai-asus-tuf-h1.png', 1),
+(161, 'headphone', 'asus', 'Tai nghe chụp tai ASUS TUF Gaming H3', 2290000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-asus-tuf-gaming-h3.png', 1),
+(162, 'headphone', 'asus', 'Tai nghe chụp tai Gaming ASUS ROG Delta S Core', 1590000, 'None', 'Cai', 'China', 'images/tai-nghe-gaming-asus-rog-deltra-s-core.png', 1),
+(163, 'headphone', 'asus', 'Tai nghe Bluetooth True Wireless Gaming Asus Rog Cetra SpeedNova', 4790000, 'None', 'Cai', 'China', 'images/tai-nghe-asus-rog-cetra-tws-speednova_10_.png', 1),
+(164, 'headphone', 'havit', 'Tai nghe Bluetooth chụp tai Havit H630BT', 390000, 'None', 'Cai', 'China', 'images/tai-nghe-chup-tai-havit-h630bt.png', 1),
+(165, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW981', 190000, 'None', 'Cai', 'China', 'images/tai-nghe-bluetooth-havit-tw981_1_.png', 1),
+(166, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW969', 199000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-havit-tw969.png', 1),
+(167, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit 982', 290000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-havit-tw982.png', 1),
+(168, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit 931', 249000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-havit-tw-931_5_.png', 1),
+(169, 'headphone', 'havit', 'Tai nghe chụp tai có dây Gaming Havit H2040D', 320000, 'None', 'Cai', 'China', 'images/tai-nghe-gaming-havit-h2040d_1_.png', 1),
+(170, 'headphone', 'havit', 'Tai nghe Bluetooth True Wireless Havit TW958 Pro', 550000, 'None', 'Cai', 'China', 'images/tai-nghe-khong-day-havit-tw958-pro_1_.png', 1),
+(171, 'headphone', 'havit', 'Tai nghe Bluetooth chụp tai Havit H655BT', 730000, 'None', 'Cai', 'China', 'images/tai-nghe-chup-tai-havit-h665t_12_.png', 1),
+(172, 'tivi', 'samsung', 'Smart Tivi Samsung QLED 4K 50 inch 2024 (50Q60D)', 11490000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-qled-50q60d-4k-50-inch-2024.1.png', 1),
+(173, 'tivi', 'samsung', 'Smart Tivi Samsung UHD 4K 43 inch UA43AU7002', 6690000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-uhd-4k-43-inch-ua43au7002.png', 1),
+(174, 'tivi', 'samsung', 'Smart Tivi Samsung UHD 4K 55 INCH 2024 (55DU8000)', 10490000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-uhd-55du8000-4k-55-inch-2024.png', 1),
+(175, 'tivi', 'samsung', 'Smart Tivi Samsung UHD 4K 65 INCH 2024 (65DU8000)', 13190000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-uhd-65du8000-4k-65-inch-2024.png', 1),
+(176, 'tivi', 'samsung', 'Smart Tivi Samsung Crystal UHD 55 Inch (55BU8000)', 10290000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-crystal-uhd-55-inch-55bu8000.png', 1),
+(177, 'tivi', 'samsung', 'Smart Tivi Samsung khung tranh 4K 55 inch 2024 (55LS03D)', 21490000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-khung-tranh-55ls03d-4k-55-inch-2024.png', 1),
+(178, 'tivi', 'samsung', 'Smart Tivi Samsung QLED 75 inch (75Q60BAK)', 18490000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-qled-75-inch-75q60bak.png', 1),
+(179, 'tivi', 'samsung', 'Smart Tivi Samsung Crystal UHD 85 inch (85BU8000)', 26190000, 'None', 'Cai', 'China', 'images/smart-tivi-samsung-crystal-uhd-85-inch-85bu8000.png', 1),
+(180, 'tivi', 'xiaomi', 'Tivi Xiaomi A Pro 4K 43 inch QLED 2025', 6490000, 'None', 'Cai', 'China', 'images/smart_tivi_qned_lg_4k_75_inch_75qned86sra.png', 1),
+(181, 'tivi', 'xiaomi', 'Tivi Xiaomi A 4K 2025 55 inch', 8490000, 'None', 'Cai', 'China', 'images/tivi-xiaomi-a-55-inch-4k-2025.png', 1),
+(182, 'tivi', 'xiaomi', 'Tivi Xiaomi A Pro 4K 55 inch QLED 2025', 9490000, 'None', 'Cai', 'China', 'images/tivi-xiaomi-qled-a-pro-55-inch-4k-2025.png', 1),
+(183, 'tivi', 'xiaomi', 'Tivi Xiaomi A Pro 4K 65 inch QLED 2025', 12730000, 'None', 'Cai', 'China', 'images/tivi-xiaomi-qled-a-pro-65-inch-4k-2025.png', 1),
+(184, 'tivi', 'xiaomi', 'Tivi Xiaomi A 32 inch HD', 3990000, 'None', 'Cai', 'China', 'images/tivi-xiaomi-a-32-inch-hd.png', 1),
+(185, 'tivi', 'xiaomi', 'Tivi Xiaomi A FHD 43 inch 2025', 5490000, 'None', 'Cai', 'China', 'images/tivi-xiaomi-a-43-inch-fhd-2025.png', 1),
+(186, 'tivi', 'xiaomi', 'Xiaomi Smart Display S Mini LED 55 inch 2025', 15990000, 'None', 'Cai', 'China', 'images/google-tivi-xiaomi-s-mini-led-55-inch-2025.png', 1),
+(187, 'tivi', 'xiaomi', 'Xiaomi Max 2025 85 N36V', 31990000, 'None', 'Cai', 'China', 'images/google-tivi-xiaomi-max-85-inch-n36v-2025.png', 1),
+(188, 'tivi', 'sony', 'Smart Tivi Sony 4K 55 inch KD-55X75K', 12890000, 'None', 'Cai', 'China', 'images/smart-tivi-sony-4k-55-inch-kd-55x75k.png', 1),
+(189, 'tivi', 'sony', 'Smart Tivi Sony 4K 65 inch KD-65X75K', 15490000, 'None', 'Cai', 'China', 'images/smart_tivi_samsung_qled_55_inch_55q60bak_1_.png', 1),
+(190, 'tivi', 'sony', 'Google Tivi Sony 4K 50 inch (K-50S30)', 15690000, 'None', 'Cai', 'China', 'images/google-tivi-sony-k-50s30-4k-50-inch.png', 1),
+(191, 'tivi', 'sony', 'Google Tivi Sony 4K 65 inch KD-65X80L', 19790000, 'None', 'Cai', 'China', 'images/google-tivi-sony-kd-65x80l-4k-65-inch.png', 1),
+(192, 'tivi', 'sony', 'Google Tivi Sony 4K 75 inch KD-75X80L', 27990000, 'None', 'Cai', 'China', 'images/google-tivi-sony-kd-75x80l-4k-75-inch_6_.png', 1),
+(193, 'tivi', 'sony', 'Google Tivi OLED Sony 4K 48 inch XR-48A90K', 32900000, 'None', 'Cai', 'China', 'images/google-tivi-oled-sony-xr-48a90k-4k-48-inch_4_.png', 1),
+(194, 'tivi', 'sony', 'Google Tivi OLED Sony 4K 55 inch XR-55A80L', 39990000, 'None', 'Cai', 'China', 'images/google-tivi-oled-sony-xr-55a80l-4k-55-inch_8_.png', 1);
 
 -- --------------------------------------------------------
 
@@ -307,7 +388,7 @@ CREATE TABLE `useraccount` (
 
 INSERT INTO `useraccount` (`user_id`, `user_name`, `user_password`, `ho_ten`, `sdt`, `ngay_dk`, `admin_perr`) VALUES
 (2, 'dat02', 'dat02', 'leducdat', NULL, '2024-12-03 17:00:00', 1),
-(3, 'dat03', 'dat03', '', '0987654321', '2024-12-05 09:08:12', 1);
+(3, 'dat03', 'dat03', '', '0987654321', '2024-12-05 09:08:12', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -368,13 +449,13 @@ ALTER TABLE `useraccount`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `SOHD` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SOHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `sp`
 --
 ALTER TABLE `sp`
-  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT cho bảng `useraccount`
