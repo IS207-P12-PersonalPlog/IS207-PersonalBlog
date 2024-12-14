@@ -163,6 +163,10 @@
                       href="list_product.php?brand_id=samsung&category_id=phone">Samsung</a></li>
                   <li><a class="dropdown-item"
                       href="list_product.php?brand_id=xiaomi&category_id=phone">Xiaomi</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=nokia&category_id=phone">Nokia</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=oppo&category_id=phone">Oppo</a></li>
                 </ul>
               </li>
             </ul>
@@ -189,6 +193,14 @@
                       href="list_product.php?brand_id=msi&category_id=laptop">MSI</a></li>
                   <li><a class="dropdown-item"
                       href="list_product.php?brand_id=apple&category_id=laptop">Mac</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=acer&category_id=laptop">Acer</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=dell&category_id=laptop">Dell</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=hp&category_id=laptop">HP</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=lenovo&category_id=laptop">Lenovo</a></li>   
                 </ul>
               </li>
             </ul>
@@ -210,11 +222,15 @@
                 <ul class="dropdown-menu"
                   aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item"
-                      href="list_product.php?brand_id=havit">Havit</a></li>
+                      href="list_product.php?brand_id=havit&category_id=headphone">Havit</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Gaming</a></li>
+                      href="list_product.php?brand_id=asus&category_id=headphone">Asus</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Bluetooth</a></li>
+                      href="list_product.php?brand_id=samsung&category_id=headphone">Samsung</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=xiaomi&category_id=headphone">Xiaomi</a></li>
+                  <li><a class="dropdown-item"
+                      href="list_product.php?brand_id=sony&category_id=headphone">Sony</a></li>
                 </ul>
               </li>
             </ul>
@@ -236,11 +252,11 @@
                 <ul class="dropdown-menu"
                   aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item"
-                      href="#">LG</a></li>
+                      href="list_product.php?brand_id=samsung&category_id=tivi">Samsung</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Samsung</a></li>
+                      href="list_product.php?brand_id=sony&category_id=tivi">Sony</a></li>
                   <li><a class="dropdown-item"
-                      href="#">Xiaomi</a></li>
+                      href="list_product.php?brand_id=xiaomi&category_id=tivi">Xiaomi</a></li>
                 </ul>
               </li>
             </ul>
