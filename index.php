@@ -13,115 +13,76 @@
 <body>
 
     <?php include "topbar.php"; ?>
-
+    <br>
     <main>
-        <div class="container slide">
-            <div class="row slide">
-                <div class="col-lg-8 slide">
-                    <!-- Slide -->
-                    <div id="carouselExampleIndicators"
-                        class="carousel slide"
-                        data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button"
+        <div class="slide">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <!-- Slide -->
+                        <div id="carouselExampleIndicators"
+                            class="carousel slide"
+                            data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button"
+                                    data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="0"
+                                    class="active"
+                                    aria-current="true"
+                                    aria-label="Slide 1"></button>
+                                <button type="button"
+                                    data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button"
+                                    data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <?php
+                                    include "connect.php";
+                                    $sql = "SELECT * FROM sp ORDER BY RAND() LIMIT 3";
+                                    $result = $connect->query($sql);
+                                    $row = $result->fetch_row();
+                                    echo "<div class='carousel-item active'>";
+                                    echo "<a href='product_detail.php?masp=$row[0]' target='_blank'>";
+                                    echo "<img src='$row[8]' class='d-block w-100' width='100%' height='450px'>";
+                                    echo "</a>";
+                                    echo "</div>";
+                                    while ($row = $result->fetch_row())
+                                    {
+                                        echo "<div class='carousel-item'>";
+                                        echo "<a href='product_detail.php?masp=$row[0]' target='_blank'>";
+                                        echo "<img src='$row[8]' class='d-block w-100' width='100%' height='450px'>";
+                                        echo "</a>";
+                                        echo "</div>";
+                                    }
+                                ?>
+                            </div>
+                            <button class="carousel-control-prev"
+                                type="button"
                                 data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="0"
-                                class="active"
-                                aria-current="true"
-                                aria-label="Slide 1"></button>
-                            <button type="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"
+                                    aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next"
+                                type="button"
                                 data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button"
-                                data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"
+                                    aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="#"
-                                    target="_blank">
-                                    <img src="https://cdn-images.vtv.vn/thumb_w/650/66349b6076cb4dee98746cf1/2024/09/10/screenshot-63-34588478669239839067515.png"
-                                        class="d-block w-100"
-                                        alt="Iphone"
-                                        width="250px"
-                                        height="351px">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"
-                                    target="_blank">
-                                    <img src="https://cdn-images.vtv.vn/thumb_w/650/66349b6076cb4dee98746cf1/2024/09/10/screenshot-63-34588478669239839067515.png"
-                                        class="d-block w-100"
-                                        alt="Macbook"
-                                        width="250px"
-                                        height="351px">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"
-                                    target="_blank">
-                                    <img src="https://cdn-images.vtv.vn/thumb_w/650/66349b6076cb4dee98746cf1/2024/09/10/screenshot-63-34588478669239839067515.png"
-                                        class="d-block w-100"
-                                        alt="TV"
-                                        width="250px"
-                                        height="351px">
-                                </a>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"
-                                aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon"
-                                aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
-                </div>
-                <div class="col-lg-4 slide">
-                    <div class="col">
-                        <dir class="row-lg-4 img_slide">
-                            <a href="#"
-                                target="_blank">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/326050/hp-15-fd0303tu-i3-a2nl4pa-thumb-1-600x600.jpg"
-                                    alt=""
-                                    height="117px"
-                                    width="100%">
-                            </a>
-                        </dir>
-                        <dir class="row-lg-4 img_slide">
-                            <a href="#"
-                                target="_blank">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/312414/asus-vivobook-15-x1504za-i3-nj102w-thumb-600x600.jpg"
-                                    alt=""
-                                    height="117px"
-                                    width="100%">
-                            </a>
-                        </dir>
-                        <dir class="row-lg-4 img_slide">
-                            <a href="#"
-                                target="_blank">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/326637/acer-aspire-lite-14-51m-59bn-i5-nxktxsv001-100624-101857-600x600.jpg"
-                                    alt=""
-                                    height="117px"
-                                    width="100%">
-                            </a>
-                        </dir>
-                    </div>
+                    <div class="col-lg-3"></div>
                 </div>
             </div>
         </div>
-
         <br>
 
         <!-- Filter các loại điện thoại -->

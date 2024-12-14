@@ -167,15 +167,8 @@ nav a{
 
 /* slide introduce products */
 .slide {
-  height: 351px;
-  overflow: hidden;
+  background-color: #00000012;
 }
-
-.img_slide {
-  padding: 0px;
-  margin: 0px;
-}
-
 
 /* card for each product */
 .filterable_card {

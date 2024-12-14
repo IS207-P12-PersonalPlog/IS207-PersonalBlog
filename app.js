@@ -41,7 +41,7 @@ $(document).ready(function() {
             if(response == 200)
             {
                 // $('#listItemSuperCart').load(location.href + "#listItemSuperCart");
-                alert("reload");
+                alert("Xóa thành công");
                 location.reload();
             }
             else{

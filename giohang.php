@@ -78,7 +78,7 @@
                     <div class="product-info">
                       <div class="d-flex justify-content-between align-items-start">
                         <a href="product_detail.php?masp=<?php echo $row['MASP']?> " class="product-name"><?php echo $row['TENSP']?></a>
-                        <button class="removeItem" value="<?php echo $row['MASP']
+                        <button class="removeItem btn btn-light" value="<?php echo $row['MASP']
                         ?>">Xóa</button>
                       </div>
                       <div class="d-flex justify-content-between align-items-end">
