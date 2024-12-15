@@ -97,6 +97,8 @@
                     class="btn btn-outline-secondary">Laptop</button>
                 <button data-filter=".headphone"
                     class="btn btn-outline-secondary">Headphone</button>
+                <button data-filter=".tivi"
+                    class="btn btn-outline-secondary">TV</button>
             </div>
 
             <!-- Card -->

@@ -93,55 +93,198 @@ include "topbar.php";
                 <table class="table table-bordered">
                     <tr>
                         <th>Kích Thước</th>
-                        <td><?php echo htmlspecialchars($product_details['KichThuoc']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['KichThuoc']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Công Nghệ Màn Hình</th>
-                        <td><?php echo htmlspecialchars($product_details['CongNgheManHinh']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['CongNgheManHinh']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Độ Phân Giải</th>
-                        <td><?php echo htmlspecialchars($product_details['DoPhanGiai']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['DoPhanGiai']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>GPU</th>
-                        <td><?php echo htmlspecialchars($product_details['GPU']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['GPU']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>RAM</th>
-                        <td><?php echo htmlspecialchars($product_details['RAM']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['RAM']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Bộ Nhớ Trong</th>
-                        <td><?php echo htmlspecialchars($product_details['BoNhoTrong']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['BoNhoTrong']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Pin</th>
-                        <td><?php echo htmlspecialchars($product_details['Pin']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['Pin']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>OS</th>
-                        <td><?php echo htmlspecialchars($product_details['OS']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['OS']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>CPU</th>
-                        <td><?php echo htmlspecialchars($product_details['CPU']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['CPU']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Trọng Lượng</th>
-                        <td><?php echo htmlspecialchars($product_details['TrongLuong']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['TrongLuong']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Chất Liệu</th>
-                        <td><?php echo htmlspecialchars($product_details['ChatLieu']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['ChatLieu']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Thời Điểm Ra Mắt</th>
-                        <td><?php echo htmlspecialchars($product_details['TDRaMat']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['TDRaMat']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <th>Mô Tả</th>
-                        <td><?php echo htmlspecialchars($product_details['MoTa']); ?></td>
+                        <?php
+                            if ($product_details)
+                            {
+                                echo "<td>";
+                                echo htmlspecialchars($product_details['MoTa']);
+                                echo "</td>";
+                            }
+                            else
+                            {
+                                echo "<td>Cập nhật sau</td>";
+                            }
+                        ?>
                     </tr>
                 </table>
             </div>
