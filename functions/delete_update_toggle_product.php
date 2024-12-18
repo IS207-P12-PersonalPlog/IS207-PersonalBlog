@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("i", $productId);
 
     if ($stmt->execute()) {
-        echo "Xóa thành công!";
+        echo "<h3 class='text-success'>Xóa thành công!</h3>";
     } else {
-        echo "Lỗi: " . $stmt->error;
+        echo "<h3 class='text-danger'>Lỗi: </h3>" . $stmt->error;
     }
 
     $stmt->close();
@@ -55,6 +55,9 @@ $result = $stmt->get_result();
 
 <body>
     <div class="container my-5 mx-auto w-auto">
+    <a href="admin.php">
+    <h2>Về trang admin</h2>
+    </a>
         <h2>Xóa-sửa-tắt sản phẩm</h2>
         <form method="GET" action="delete_update_toggle_product.php" class="my-3">
             <input type="text" name="search" placeholder="Tìm kiếm sản phẩm" class="w-50" value="<?php echo htmlspecialchars($searchQuery); ?>">
@@ -108,11 +111,6 @@ $result = $stmt->get_result();
         <?php
     $connect->close();
         ?>
-
-    <a href="admin.php">
-    <h2>Về trang admin</h2>
-    </a>
-
     </div>
 </body>
 

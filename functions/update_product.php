@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         echo "<script>alert('Cập nhật sản phẩm thành công!')</script>";
     } else {
-        echo "Lỗi: " . $stmt->error;
+        echo "<h3 class='text-danger'>Lỗi: </h3>" . $stmt->error;
     }
 
     $stmt->close();

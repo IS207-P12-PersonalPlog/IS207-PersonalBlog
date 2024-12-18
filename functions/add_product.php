@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssissssi", $productName, $brandId, $categoryId, $price, $storage, $dvt, $madein, $image, $status);
 
     if ($stmt->execute()) {
-        echo "Thêm sản phẩm thành công!";
+        echo "<h3 class='text-success'>Thêm sản phẩm thành công!</h3>";
     } else {
-        echo "Lỗi: " . $stmt->error;
+        echo "<h3 class='text-danger'>Lỗi: </h3>" . $stmt->error;
     }
 
     $stmt->close();
