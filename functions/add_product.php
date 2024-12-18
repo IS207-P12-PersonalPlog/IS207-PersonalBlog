@@ -139,6 +139,7 @@ $connect->close();
                     <td><input type="text"
                             id="image"
                             name="image"
+                            class="w-100"
                             required></td>
                 </tr>
                 <tr>
